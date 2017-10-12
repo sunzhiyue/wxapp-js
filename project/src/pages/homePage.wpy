@@ -1,0 +1,46 @@
+<style>
+.photo {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  height: 100px;
+  width: 100px;
+}
+.section {
+  display: flex;
+  align-content: center;
+  /* justify-content: center; */
+  margin: 10px 10px;
+  border: 1px solid grey;
+  border-radius: 5px;
+}
+</style>
+<template>
+  <view>
+    <view class="section">
+      <input placeholder="寻找作品" focus="{{focus}}" confirm-type = "search"/>
+      </view>
+      <view>
+        <image src="{{photo}}"></image>
+        <view class>
+          <view></view>
+        </view>
+        <view>
+
+        </view>
+      </view>
+    </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+export default class Index extends wepy.page {
+  config = {
+    navigationBarTitleText: '手机摄影大赛'
+  }
+  data = {
+    src: '',
+    photo: '../image/photo.jpg'
+  }
+}
+</script>

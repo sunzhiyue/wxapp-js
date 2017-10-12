@@ -1,0 +1,15 @@
+
+  <view>
+    <view class="section">
+      <input placeholder="寻找作品" focus="{{focus}}" confirm-type="search"/>
+      </view>
+      <view>
+        <image src="{{photo}}"/>
+        <view class="class">
+          <view/>
+        </view>
+        <view>
+
+        </view>
+      </view>
+    </view>

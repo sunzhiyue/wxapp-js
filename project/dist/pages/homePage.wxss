@@ -1,0 +1,16 @@
+
+.photo {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  height: 100px;
+  width: 100px;
+}
+.section {
+  display: flex;
+  align-content: center;
+  /* justify-content: center; */
+  margin: 10px 10px;
+  border: 1px solid grey;
+  border-radius: 5px;
+}
