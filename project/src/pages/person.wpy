@@ -1,13 +1,61 @@
+<style>
+.up {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.background {
+  background-color: #c0c0c0;
+  height: 1000px;
+}
+.section {
+  height: 9rem;
+  background-color: #fff;
+  border-bottom: 1px solid grey;
+  padding: 6px; 
+}
+.photoName {
+  height: 30px;
+  background-color: #fff;
+  border-bottom: 1px solid grey; 
+  margin-top: 30px;
+  padding: 6px;
+}
+</style>
 <template>
- <view>aa</view> 
+  <view class="background">
+    <view class="section">
+      <textarea bindblur="bindTextAreaBlur" placeholder="描述你的作品..." />
+    </view>
+    <view class="photoName">
+      <input bindblur="bindTextAreaBlur" placeholder="给你的作品起个名"  maxlength = "7"/>
+    </view>
+    <view class="up">
+      <button @tap="up">上传</button>
+    </view>
+  </view>
 </template>
 
 <script>
-export default {
+import wepy from 'wepy'
+export default class Index extends wepy.page {
+  config = {
+    navigationBarTitleText: '在这里上传作品'
+  }
+  methods = {
+    up() {
+      wepy.navigateTo({
+        url: './up'
+      })
+    }
+  }
 
+  onReachBottom () {
+    console.log('......')
+  }
 }
 </script>
-
-<style>
-
-</style>

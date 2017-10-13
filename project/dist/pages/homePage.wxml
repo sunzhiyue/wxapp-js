@@ -1,15 +1,18 @@
 
   <view>
+
     <view class="section">
       <input placeholder="寻找作品" focus="{{focus}}" confirm-type="search"/>
-      </view>
-      <view>
-        <image src="{{photo}}"/>
-        <view class="class">
-          <view/>
-        </view>
-        <view>
-
-        </view>
-      </view>
     </view>
+
+    <view class="swiper">
+      <swiper class="slide-image" indicator-dots="true" autoplay="true" interval="3000" duration="1000" circular="true" current="{{}}">
+        <block  wx:for="{{imgUrls}}">
+          <swiper-item>
+            <image class="" src="{{item}}"/>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+
+  </view>

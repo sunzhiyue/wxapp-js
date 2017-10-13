@@ -6,6 +6,7 @@
   height: 100px;
   width: 100px;
 }
+
 .section {
   display: flex;
   align-content: center;
@@ -13,4 +14,14 @@
   margin: 10px 10px;
   border: 1px solid grey;
   border-radius: 5px;
+}
+.slide-image {
+  width: 18.7rem;
+  height: 12.5rem;
+  border: 1px solid white;
+  border-radius: 3px;
+}
+.swiper {
+  margin: 10px 1.7rem;
+  
 }

@@ -6,6 +6,7 @@
   height: 100px;
   width: 100px;
 }
+
 .section {
   display: flex;
   align-content: center;
@@ -14,22 +15,35 @@
   border: 1px solid grey;
   border-radius: 5px;
 }
+.slide-image {
+  width: 18.7rem;
+  height: 12.5rem;
+  border: 1px solid white;
+  border-radius: 3px;
+}
+.swiper {
+  margin: 10px 1.7rem;
+  
+}
 </style>
 <template>
   <view>
-    <view class="section">
-      <input placeholder="寻找作品" focus="{{focus}}" confirm-type = "search"/>
-      </view>
-      <view>
-        <image src="{{photo}}"></image>
-        <view class>
-          <view></view>
-        </view>
-        <view>
 
-        </view>
-      </view>
+    <view class="section">
+      <input placeholder="寻找作品" focus="{{focus}}" confirm-type="search" />
     </view>
+
+    <view class = "swiper">
+      <swiper class = "slide-image" indicator-dots="{{indicatorDots}}" autoplay="true" interval="3000" duration="1000" circular = "true" indicator-dots = "true" current = "{{}}">
+        <block wx:for="{{imgUrls}}" >
+          <swiper-item>
+            <image class="" src="{{item}}"  />
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+
+  </view>
 </template>
 
 <script>
@@ -40,7 +54,35 @@ export default class Index extends wepy.page {
   }
   data = {
     src: '',
-    photo: '../image/photo.jpg'
+    photo: '../image/photo.jpg',
+    imgUrls: ['../image/u=2491534892,1740729406&fm=27&gp=0.jpg',
+      '../image/photo.jpg',
+      '../image/u=3191467671,3952424653&fm=200&gp=0.jpg'
+    ]
   }
+  methods = {
+    changeIndicatorDots: function(e) {
+      this.setData({
+        indicatorDots: !this.data.indicatorDots
+      })
+    },
+    changeAutoplay: function(e) {
+      this.setData({
+        autoplay: !this.data.autoplay
+      })
+    },
+    intervalChange: function(e) {
+      this.setData({
+        interval: e.detail.value
+      })
+    },
+    durationChange: function(e) {
+      this.setData({
+        duration: e.detail.value
+      })
+    }
+  }
+
+  onLoad() {}
 }
 </script>
