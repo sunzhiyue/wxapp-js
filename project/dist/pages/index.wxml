@@ -1,50 +1,27 @@
 
-  <view class="container">
-    <view class="userinfo" bindtap="handleViewTap">
-      <image class="userinfo-avatar" src="{{ userInfo.avatarUrl }}" background-size="cover"/>
-      <view class="userinfo-nickname">{{ userInfo.nickName }}</view>
-    </view>
-
-    
-  <view class="panel">
-    <view class="title">测试组件Repeat</view>
-    
-      
-      <block wx:for="{{groupList}}" wx:for-index="index" wx:for-item="item" wx:key="key">
-        
-  <view class="group">
-    <text class="id">{{item.id}}. </text>
-    <text class="name" bindtap="$group$tap" data-com-index="{{index}}">{{item.name}}</text>
-    <view>
-      <block wx:for="{{item.list}}" wx:for-index="$group$index" wx:for-item="$group$item" wx:key="$group$key">
-        
-  <view class="groupitem">
-    --<text class="id">{{$group$item.childid}}.</text>
-    <text class="name" bindtap="$group$groupitem$tap" data-com-index="{{index}}-{{$group$index}}"> {{$group$item.childname}}</text>
-  </view>
-
-      </block>
-    </view>
-  </view>
-
-      </block>
-    
-  </view>
-
-
-    
-    <view class="wetoast {{$toast$reveal ? 'wetoast_show' : ''}}">
-        <view class="wetoast__mask"/>
-        <view class="wetoast__bd" animation="{{$toast$animationData}}">
-            <block  wx:if="{{$toast$img}}">
-                <view class="wetoast__bd__img {{$toast$imgClassName || ''}}">
-                    <image class="wetoast__bd__img_desc" src="{{$toast$img}}" mode="{{$toast$imgMode || 'scaleToFill'}}"/>
-                </view>
-            </block>
-            <block  wx:if="{{$toast$title}}">
-                <view class="wetoast__bd__title {{$toast$titleClassName || ''}}">{{$toast$title}}</view>
-            </block>
+  <view class="background" style="height: {{height}}px">
+    <view class="">
+      <view class="id">
+        <view class="userinfo">
+          <image class="userinfo-avatar" src="{{ avatarUrl }}"/>
+          <view class="userinfo-nickname">{{ nickName }}</view>
         </view>
-    </view>
+      </view>
 
+      <view class="body">
+        <view class="praise flex">
+          <image class="image" src="{{praise}}"/>
+          <text class="text">我赞过的</text>
+        </view>
+        <view class="praise flex">
+          <image class="image" src="{{teas}}"/>
+          <text class="text">吐槽吐槽</text>
+        </view>
+        <view class="flex">
+          <image class="image" src="{{about}}"/>
+            <text class="text">关于我们</text>
+        </view>
+      </view>
+
+    </view>
   </view>

@@ -1,0 +1,123 @@
+<style>
+.up {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.background {
+  background-color: #dcdcdc;
+}
+
+.section {
+  height: 9rem;
+  background-color: #fff;
+  border-bottom: 1px solid grey;
+  padding: 6px;
+}
+
+.photoName {
+  height: 30px;
+  background-color: #fff;
+  border-bottom: 1px solid grey;
+  margin-top: 20px;
+  padding: 6px;
+}
+
+.upPhoto {
+  height: 70px;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.image {
+  height: 4.4rem;
+  width: 4.4rem;
+}
+.button {
+  height: 4.4rem;
+  width: 4.4rem;
+  border: 1px dotted grey;
+
+}
+</style>
+<template>
+  <view class="background" style="height: {{height}}px">
+    <view class="section">
+      <textarea bindblur="bindTextAreaBlur" placeholder="描述你的作品..." />
+    </view>
+    <view class="photoName">
+      <input bindblur="bindTextAreaBlur" placeholder="给你的作品起个名" maxlength="7" />
+    </view>
+
+    <view class="upPhoto">
+      <block wx:for="{{src}}">
+        <view>
+          <image class="image" src="{{item}}"></image>
+        </view>
+      </block>
+      <view class = "button" @tap="ButtonTap" >
+      <image class="image" src= "{{buttonUp}}"/></view>
+    </view>
+    <view class="up">
+      <button @tap="up">上传</button>
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+export default class Index extends wepy.page {
+  config = {
+    navigationBarTitleText: '在这里上传作品'
+  }
+  data = {
+    src: [],
+    buttonUp: '../image/add.png',
+    height: 0,
+    width: 0
+  }
+  methods = {
+    up() {
+      wepy.navigateTo({
+        url: ''
+      })
+    }
+  }
+  ButtonTap() {
+    let self = this
+    wepy.chooseImage({
+      count: 3, // 默认9
+      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+      success: function(res) {
+        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
+        let arr = self.src
+        arr.push(res.tempFilePaths[0])
+        self.src = arr
+        self.setData({
+          src: arr
+        })
+      }
+    })
+  };
+  onLoad() {
+    let self = this
+    wepy.getSystemInfo({
+      success(res) {
+        console.log(res)
+        self.height = res.windowHeight
+        self.width = res.windowWidth
+      }
+    })
+  }
+  onReachBottom() {
+    console.log('......')
+  }
+}
+</script>

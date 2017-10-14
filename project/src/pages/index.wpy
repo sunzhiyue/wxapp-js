@@ -6,94 +6,133 @@
 }
 
 .userinfo-avatar {
-  width: 80rpx;
-  height: 80rpx;
+  width: 100rpx;
+  height: 100rpx;
   border-radius: 50%;
 }
 
 .userinfo-nickname {
   color: #aaa;
 }
+
+.id {
+  height: 300rpx;
+  width: 100%;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+}
+
+.background {
+  background-color: #dcdcdc;
+}
+
+.body {
+  margin-top: 50rpx;
+  background-color: #fff;
+  padding: 8rpx;
+}
+
+.praise {
+  border-bottom: 1px solid #d8d5d5;
+}
+
+.flex {
+  display: flex;
+  align-content: center;
+  flex-direction: row;
+}
+
+.text {
+  display: flex;
+  font-size: 20px;
+  color: #4a4847;
+  padding: 4px 4px 0px 4px;
+  flex: 9;
+}
+
+.text1 {
+  display: flex;
+  font-size: 20px;
+  color: #4a4847;
+  padding: 4px 4px 0px 4px;
+  flex: 1;
+}
+
+.image {
+  height: 50rpx;
+  width: 50rpx;
+  padding: 4px;
+}
+
+.location {
+  display: flex;
+  justify-content: space-between;
+}
 </style>
 <template>
-  <view class="container">
-    <view class="userinfo" @tap="handleViewTap">
-      <image class="userinfo-avatar" src="{{ userInfo.avatarUrl }}" background-size="cover" />
-      <view class="userinfo-nickname">{{ userInfo.nickName }}</view>
+  <view class="background" style="height: {{height}}px">
+    <view class="">
+      <view class="id">
+        <view class="userinfo">
+          <image class="userinfo-avatar" src="{{ avatarUrl }}" />
+          <view class="userinfo-nickname">{{ nickName }}</view>
+        </view>
+      </view>
+
+      <view class="body">
+        <view class="praise flex">
+          <image class="image" src="{{praise}}" />
+          <text class="text">我赞过的</text>
+        </view>
+        <view class="praise flex">
+          <image class="image" src="{{teas}}" />
+          <text class="text">吐槽吐槽</text>
+        </view>
+        <view class="flex">
+          <image class="image" src="{{about}}" />
+            <text class="text">关于我们</text>
+        </view>
+      </view>
+
     </view>
-
-    <panel>
-      <view class="title" slot="title">测试组件Repeat</view>
-      <repeat for="{{groupList}}" index="index" item="item" key="key">
-        <group :grouplist="item" :indexa="index"></group>
-      </repeat>
-    </panel>
-
-    <toast />
   </view>
 </template>
 
 <script>
 import wepy from 'wepy'
-import List from '../components/list'
-import Panel from '../components/panel'
-import Counter from 'counter' // alias example
-import Group from '../components/group'
-import Toast from 'wepy-com-toast'
-import testMixin from '../mixins/test'
-
 export default class Index extends wepy.page {
   config = {
     navigationBarTitleText: '我的'
   }
-  components = {
-    panel: Panel,
-    counter1: Counter,
-    counter2: Counter,
-    list: List,
-    group: Group,
-    toast: Toast
-  }
-
-  mixins = [testMixin]
-
   data = {
-    mynum: 20,
-    userInfo: {
-      nickName: '加载中...'
-    },
-    normalTitle: '原始标题',
-    setTimeoutTitle: '标题三秒后会被修改',
-    count: 0,
-    netrst: '',
-    groupList: [
-      {
-        id: 1,
-        name: '点击改变',
-        list: [
-          {
-          }
-        ]
-      }
-    ]
+    avatarUrl: '',
+    nickName: '',
+    height: 0,
+    width: 0,
+    src: '',
+    praise: '../image/praise.png',
+    teas: '../image/message (1).png',
+    about: '../image/group.png'
   }
   methods = {
-  }
+  };
   onLoad() {
     let self = this
-    this.$parent.getUserInfo(function(userInfo) {
-      if (userInfo) {
-        self.userInfo = userInfo
+    wepy.getSystemInfo({
+      success(res) {
+        console.log(res)
+        self.height = res.windowHeight
+        self.width = res.windowWidth
       }
-      self.normalTitle = '标题已被修改'
-
-      self.setTimeoutTitle = '标题三秒后会被修改'
-      setTimeout(() => {
-        self.setTimeoutTitle = '到三秒了'
-        self.$apply()
-      }, 3000)
-
-      self.$apply()
+    })
+    wepy.getUserInfo({
+      success(res) {
+        self.nickName = res.userInfo.nickName
+        self.avatarUrl = res.userInfo.avatarUrl
+      }
     })
   }
 }

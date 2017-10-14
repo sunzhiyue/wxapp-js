@@ -18,7 +18,7 @@ export default class extends wepy.app {
     pages: [
       'pages/homePage',
       'pages/index',
-      'pages/person',
+      'pages/upphoto',
       'pages/up'
     ],
     window: {
@@ -37,7 +37,7 @@ export default class extends wepy.app {
         iconPath: './image/homepage_fill (2).png',
         selectedIconPath: './image/homepage_fill (1).png'
       }, {
-        pagePath: 'pages/person',
+        pagePath: 'pages/upphoto',
         text: '参赛',
         iconPath: './image/addition (1).png',
         selectedIconPath: './image/addition_fill.png'

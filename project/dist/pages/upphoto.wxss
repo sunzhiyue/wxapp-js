@@ -1,0 +1,47 @@
+
+.up {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.background {
+  background-color: #dcdcdc;
+}
+
+.section {
+  height: 9rem;
+  background-color: #fff;
+  border-bottom: 1px solid grey;
+  padding: 6px;
+}
+
+.photoName {
+  height: 30px;
+  background-color: #fff;
+  border-bottom: 1px solid grey;
+  margin-top: 20px;
+  padding: 6px;
+}
+
+.upPhoto {
+  height: 70px;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.image {
+  height: 4.4rem;
+  width: 4.4rem;
+}
+.button {
+  height: 4.4rem;
+  width: 4.4rem;
+  border: 1px dotted grey;
+
+}

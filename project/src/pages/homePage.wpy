@@ -15,15 +15,16 @@
   border: 1px solid grey;
   border-radius: 5px;
 }
+
 .slide-image {
   width: 18.7rem;
   height: 12.5rem;
   border: 1px solid white;
   border-radius: 3px;
 }
+
 .swiper {
   margin: 10px 1.7rem;
-  
 }
 </style>
 <template>
@@ -33,11 +34,11 @@
       <input placeholder="寻找作品" focus="{{focus}}" confirm-type="search" />
     </view>
 
-    <view class = "swiper">
-      <swiper class = "slide-image" indicator-dots="{{indicatorDots}}" autoplay="true" interval="3000" duration="1000" circular = "true" indicator-dots = "true" current = "{{}}">
-        <block wx:for="{{imgUrls}}" >
+    <view class="swiper">
+      <swiper class="slide-image" indicator-dots="{{indicatorDots}}" autoplay="true" interval="3000" duration="1000" circular="true" indicator-dots="true" current="{{}}">
+        <block wx:for="{{imgUrls}}">
           <swiper-item>
-            <image class="" src="{{item}}"  />
+            <image class="" src="{{item}}" />
           </swiper-item>
         </block>
       </swiper>
@@ -61,28 +62,8 @@ export default class Index extends wepy.page {
     ]
   }
   methods = {
-    changeIndicatorDots: function(e) {
-      this.setData({
-        indicatorDots: !this.data.indicatorDots
-      })
-    },
-    changeAutoplay: function(e) {
-      this.setData({
-        autoplay: !this.data.autoplay
-      })
-    },
-    intervalChange: function(e) {
-      this.setData({
-        interval: e.detail.value
-      })
-    },
-    durationChange: function(e) {
-      this.setData({
-        duration: e.detail.value
-      })
-    }
   }
 
-  onLoad() {}
+  onLoad() { }
 }
 </script>
