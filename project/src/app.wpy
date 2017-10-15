@@ -17,9 +17,12 @@ export default class extends wepy.app {
   config = {
     pages: [
       'pages/homePage',
-      'pages/index',
+      'pages/mine',
       'pages/upphoto',
-      'pages/up'
+      'pages/up',
+      'pages/mine/praise',
+      'pages/mine/about',
+      'pages/mine/teas'
     ],
     window: {
       backgroundTextStyle: 'light',
@@ -42,7 +45,7 @@ export default class extends wepy.app {
         iconPath: './image/addition (1).png',
         selectedIconPath: './image/addition_fill.png'
       }, {
-        pagePath: 'pages/index',
+        pagePath: 'pages/mine',
         text: '我的',
         iconPath: './image/emoji.png',
         selectedIconPath: './image/emoji_fill.png'

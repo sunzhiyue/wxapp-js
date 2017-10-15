@@ -6,7 +6,7 @@
 import wepy from 'wepy'
 export default class Index extends wepy.page {
   config = {
-    navigationBarTitleText: '上传作品'
+    navigationBarTitleText: '搜索'
   }
 }
 </script>

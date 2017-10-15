@@ -1,0 +1,12 @@
+<style>
+
+</style>
+<template>
+<view>cc</view>  
+</template>
+
+<script>
+export default {
+
+}
+</script>

@@ -35,11 +35,18 @@ var Index = function (_wepy$page) {
 
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Index.__proto__ || Object.getPrototypeOf(Index)).call.apply(_ref, [this].concat(args))), _this), _this.config = {
       navigationBarTitleText: '手机摄影大赛'
+    }, _this.methods = {
+      searchtap: function searchtap() {
+        _wepy2.default.navigateTo({
+          url: 'up'
+        });
+      }
     }, _this.data = {
       src: '',
       photo: '../image/photo.jpg',
-      imgUrls: ['../image/u=2491534892,1740729406&fm=27&gp=0.jpg', '../image/photo.jpg', '../image/u=3191467671,3952424653&fm=200&gp=0.jpg']
-    }, _this.methods = {}, _temp), _possibleConstructorReturn(_this, _ret);
+      imgUrls: ['../image/u=2491534892,1740729406&fm=27&gp=0.jpg', '../image/photo.jpg', '../image/u=3191467671,3952424653&fm=200&gp=0.jpg'],
+      search: '../image/search.png'
+    }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
   _createClass(Index, [{
@@ -53,4 +60,4 @@ var Index = function (_wepy$page) {
 
 Page(require('./../npm/wepy/lib/wepy.js').default.$createPage(Index , 'pages/homePage'));
 
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImhvbWVQYWdlLmpzIl0sIm5hbWVzIjpbIkluZGV4IiwiY29uZmlnIiwibmF2aWdhdGlvbkJhclRpdGxlVGV4dCIsImRhdGEiLCJzcmMiLCJwaG90byIsImltZ1VybHMiLCJtZXRob2RzIiwicGFnZSJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7O0FBQ0E7Ozs7Ozs7Ozs7OztJQUNxQkEsSzs7Ozs7Ozs7Ozs7Ozs7b0xBQ25CQyxNLEdBQVM7QUFDUEMsOEJBQXdCO0FBRGpCLEssUUFHVEMsSSxHQUFPO0FBQ0xDLFdBQUssRUFEQTtBQUVMQyxhQUFPLG9CQUZGO0FBR0xDLGVBQVMsQ0FBQyxpREFBRCxFQUNQLG9CQURPLEVBRVAsa0RBRk87QUFISixLLFFBUVBDLE8sR0FBVSxFOzs7Ozs2QkFHRCxDQUFHOzs7O0VBZnFCLGVBQUtDLEk7O2tCQUFuQlIsSyIsImZpbGUiOiJob21lUGFnZS5qcyIsInNvdXJjZXNDb250ZW50IjpbIlxuaW1wb3J0IHdlcHkgZnJvbSAnd2VweSdcbmV4cG9ydCBkZWZhdWx0IGNsYXNzIEluZGV4IGV4dGVuZHMgd2VweS5wYWdlIHtcbiAgY29uZmlnID0ge1xuICAgIG5hdmlnYXRpb25CYXJUaXRsZVRleHQ6ICfmiYvmnLrmkYTlvbHlpKfotZsnXG4gIH1cbiAgZGF0YSA9IHtcbiAgICBzcmM6ICcnLFxuICAgIHBob3RvOiAnLi4vaW1hZ2UvcGhvdG8uanBnJyxcbiAgICBpbWdVcmxzOiBbJy4uL2ltYWdlL3U9MjQ5MTUzNDg5MiwxNzQwNzI5NDA2JmZtPTI3JmdwPTAuanBnJyxcbiAgICAgICcuLi9pbWFnZS9waG90by5qcGcnLFxuICAgICAgJy4uL2ltYWdlL3U9MzE5MTQ2NzY3MSwzOTUyNDI0NjUzJmZtPTIwMCZncD0wLmpwZydcbiAgICBdXG4gIH1cbiAgbWV0aG9kcyA9IHtcbiAgfVxuXG4gIG9uTG9hZCgpIHsgfVxufVxuIl19
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImhvbWVQYWdlLmpzIl0sIm5hbWVzIjpbIkluZGV4IiwiY29uZmlnIiwibmF2aWdhdGlvbkJhclRpdGxlVGV4dCIsIm1ldGhvZHMiLCJzZWFyY2h0YXAiLCJuYXZpZ2F0ZVRvIiwidXJsIiwiZGF0YSIsInNyYyIsInBob3RvIiwiaW1nVXJscyIsInNlYXJjaCIsInBhZ2UiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7OztBQUNBOzs7Ozs7Ozs7Ozs7SUFDcUJBLEs7Ozs7Ozs7Ozs7Ozs7O29MQUNuQkMsTSxHQUFTO0FBQ1BDLDhCQUF3QjtBQURqQixLLFFBR1RDLE8sR0FBVTtBQUNSQyxlQURRLHVCQUNJO0FBQ1YsdUJBQUtDLFVBQUwsQ0FBZ0I7QUFDZEMsZUFBSztBQURTLFNBQWhCO0FBR0Q7QUFMTyxLLFFBT1ZDLEksR0FBTztBQUNMQyxXQUFLLEVBREE7QUFFTEMsYUFBTyxvQkFGRjtBQUdMQyxlQUFTLENBQUMsaURBQUQsRUFDUCxvQkFETyxFQUVQLGtEQUZPLENBSEo7QUFPTEMsY0FBUTtBQVBILEs7Ozs7OzZCQVNFLENBQUc7Ozs7RUFwQnFCLGVBQUtDLEk7O2tCQUFuQlosSyIsImZpbGUiOiJob21lUGFnZS5qcyIsInNvdXJjZXNDb250ZW50IjpbIlxuaW1wb3J0IHdlcHkgZnJvbSAnd2VweSdcbmV4cG9ydCBkZWZhdWx0IGNsYXNzIEluZGV4IGV4dGVuZHMgd2VweS5wYWdlIHtcbiAgY29uZmlnID0ge1xuICAgIG5hdmlnYXRpb25CYXJUaXRsZVRleHQ6ICfmiYvmnLrmkYTlvbHlpKfotZsnXG4gIH1cbiAgbWV0aG9kcyA9IHtcbiAgICBzZWFyY2h0YXAoKSB7XG4gICAgICB3ZXB5Lm5hdmlnYXRlVG8oe1xuICAgICAgICB1cmw6ICd1cCdcbiAgICAgIH0pXG4gICAgfVxuICB9XG4gIGRhdGEgPSB7XG4gICAgc3JjOiAnJyxcbiAgICBwaG90bzogJy4uL2ltYWdlL3Bob3RvLmpwZycsXG4gICAgaW1nVXJsczogWycuLi9pbWFnZS91PTI0OTE1MzQ4OTIsMTc0MDcyOTQwNiZmbT0yNyZncD0wLmpwZycsXG4gICAgICAnLi4vaW1hZ2UvcGhvdG8uanBnJyxcbiAgICAgICcuLi9pbWFnZS91PTMxOTE0Njc2NzEsMzk1MjQyNDY1MyZmbT0yMDAmZ3A9MC5qcGcnXG4gICAgXSxcbiAgICBzZWFyY2g6ICcuLi9pbWFnZS9zZWFyY2gucG5nJ1xuICB9XG4gIG9uTG9hZCgpIHsgfVxufVxuIl19

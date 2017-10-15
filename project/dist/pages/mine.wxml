@@ -1,0 +1,27 @@
+
+  <view class="background" style="height: {{height}}px">
+    <view class="">
+      <view class="id">
+        <view class="userinfo">
+          <image class="userinfo-avatar" src="{{ avatarUrl }}"/>
+          <view class="userinfo-nickname">{{ nickName }}</view>
+        </view>
+      </view>
+
+      <view class="body">
+        <view bindtap="praiseTap" class="praise flex">
+          <image class="image" src="{{praise}}"/>
+          <text class="text">我赞过的</text>
+        </view>
+        <view bindtap="teasTap" class="praise flex">
+          <image class="image" src="{{teas}}"/>
+          <text class="text">吐槽吐槽</text>
+        </view>
+        <view bindtap="aboutTap" class="flex">
+          <image class="image" src="{{about}}"/>
+            <text class="text">关于我们</text>
+        </view>
+      </view>
+
+    </view>
+  </view>

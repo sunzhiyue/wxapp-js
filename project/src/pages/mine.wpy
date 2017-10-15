@@ -83,15 +83,15 @@
       </view>
 
       <view class="body">
-        <view class="praise flex">
+        <view @tap = "praiseTap" class="praise flex">
           <image class="image" src="{{praise}}" />
           <text class="text">我赞过的</text>
         </view>
-        <view class="praise flex">
+        <view @tap = "teasTap" class="praise flex">
           <image class="image" src="{{teas}}" />
           <text class="text">吐槽吐槽</text>
         </view>
-        <view class="flex">
+        <view @tap = "aboutTap" class="flex">
           <image class="image" src="{{about}}" />
             <text class="text">关于我们</text>
         </view>
@@ -118,6 +118,21 @@ export default class Index extends wepy.page {
     about: '../image/group.png'
   }
   methods = {
+    praiseTap() {
+      wepy.navigateTo({
+        url: 'mine/praise'
+      })
+    },
+    teasTap() {
+      wepy.navigateTo({
+        url: 'mine/teas'
+      })
+    },
+    aboutTap() {
+      wepy.navigateTo({
+        url: 'mine/about'
+      })
+    }
   };
   onLoad() {
     let self = this
