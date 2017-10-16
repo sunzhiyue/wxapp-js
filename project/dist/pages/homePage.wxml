@@ -18,13 +18,24 @@
       </swiper>
     </view>
 
-    <view class="show">
-      <view class="">
-
-      </view>
-      <view class="">
-
-      </view>
-
+    <view class="popularity">
+      <text>人气推荐</text>
     </view>
+    <view class="show">
+      <view class="production">
+        <block  wx:for="{{production}}" wx:key="index">
+          <view class="recommend">
+            <text class="recName">{{item.recName}}</text>
+            <image class="recPhoto" src="{{item.recPhoto}}" mode="scaleToFill"/>
+            <view class="prais">
+              <view class="center">
+              <image class="praise" src="{{praise}}"/>
+              </view>
+              <text class="Number">{{item.recNumber}}</text>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+
   </view>

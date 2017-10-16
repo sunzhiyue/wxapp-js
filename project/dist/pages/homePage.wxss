@@ -34,7 +34,56 @@
   justify-content: center;
   margin-top: 1px;
 }
+
 .show {
-  width: 100%;
-  height: 200rpx;
+  height: 260rpx;
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.popularity {
+  color: #918d8d;
+  margin-top: 6px;
+}
+
+.recommend {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+.prais {
+  display: flex;
+  flex-direction: row;
+  font-size: 15px;
+}
+.praise {
+  height: 15px;
+  width: 15px;
+}
+
+.recPhoto {
+  border-radius: 10px;
+  width: 9rem;
+}
+
+.recName {
+  font-size: 30px;
+}
+
+.production {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

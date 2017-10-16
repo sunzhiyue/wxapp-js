@@ -1,2 +1,6 @@
 
- <view>aa</view>
+  <view>
+    <view class="find">
+      <input placeholder="搜索" auto-focus/>
+    </view>
+  </view>

@@ -34,15 +34,64 @@
   justify-content: center;
   margin-top: 1px;
 }
+
 .show {
-  width: 100%;
-  height: 200rpx;
+  height: 260rpx;
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.popularity {
+  color: #918d8d;
+  margin-top: 6px;
+}
+
+.recommend {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+.prais {
+  display: flex;
+  flex-direction: row;
+  font-size: 15px;
+}
+.praise {
+  height: 15px;
+  width: 15px;
+}
+
+.recPhoto {
+  border-radius: 10px;
+  width: 9rem;
+}
+
+.recName {
+  font-size: 30px;
+}
+
+.production {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>
 <template>
   <view class="">
     <view class="background">
-      <view @tap ="searchtap"  class="section">
+      <view @tap="searchtap" class="section">
         <view class="search">
           <image class="search" src="{{search}}" />
         </view>
@@ -59,15 +108,26 @@
       </swiper>
     </view>
 
-    <view class = "show">
-      <view class = "">
-
-      </view>
-      <view class = "">
-
-      </view>
-
+    <view class="popularity">
+      <text>人气推荐</text>
     </view>
+    <view class="show">
+      <view class="production">
+        <block wx:for="{{production}}" wx:key="index">
+          <view class="recommend">
+            <text class="recName">{{item.recName}}</text>
+            <image class="recPhoto" src="{{item.recPhoto}}" mode="scaleToFill" />
+            <view class = "prais">
+              <view class="center">
+              <image class="praise" src="{{praise}}" />
+              </view>
+              <text class="Number">{{item.recNumber}}</text>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+
   </view>
 </template>
 
@@ -91,7 +151,16 @@ export default class Index extends wepy.page {
       '../image/photo.jpg',
       '../image/u=3191467671,3952424653&fm=200&gp=0.jpg'
     ],
-    search: '../image/search.png'
+    search: '../image/search.png',
+    praise: '../image/praise.png',
+    production: [
+      { recName: 'haha', recPhoto: 'https://img.25pp.com/uploadfile/bizhi/iphone6p/20160506/1462497573316537_390x690.jpg' },
+      { recName: 'haha', recPhoto: 'https://img.25pp.com/uploadfile/bizhi/iphone6p/20160422/1461287166190361_390x690.jpeg' },
+      { recName: 'haha', recPhoto: 'https://img.25pp.com/uploadfile/bizhi/iphone6p/20160506/1462497573316537_390x690.jpg', recNumber: '30' },
+      { recName: 'haha', recPhoto: 'https://img.25pp.com/uploadfile/bizhi/iphone6p/20160506/1462497573316537_390x690.jpg', recNumber: '30' },
+      { recName: 'haha', recPhoto: 'https://img.25pp.com/uploadfile/bizhi/iphone6p/20160506/1462497573316537_390x690.jpg', recNumber: '30' },
+      { recName: '花', recPhoto: 'http://isujin.com/wp-content/uploads/2017/09/wallhaven-33397.jpg', recNumber: '12' }
+    ]
   }
   onLoad() { }
 }

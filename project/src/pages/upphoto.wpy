@@ -33,11 +33,18 @@
   display: flex;
   flex-direction: row;
   width: 100%;
+  margin: 10px 6px;
+  flex-wrap: wrap; 
 }
-
 .image {
   height: 4.4rem;
   width: 4.4rem;
+  margin-right: 6px;
+}
+.image-button {
+  height: 4.4rem;
+  width: 4.4rem;
+
 }
 .button {
   height: 4.4rem;
@@ -58,11 +65,11 @@
     <view class="upPhoto">
       <block wx:for="{{src}}">
         <view>
-          <image class="image" src="{{item}}"></image>
+          <image class="image" mode="scaleToFill" src="{{item}}"></image>
         </view>
       </block>
       <view class = "button" @tap="ButtonTap" >
-      <image class="image" src= "{{buttonUp}}"/></view>
+      <image class="image-button" src= "{{buttonUp}}"/></view>
     </view>
     <view class="up">
       <button @tap="up">上传</button>
@@ -91,9 +98,9 @@ export default class Index extends wepy.page {
   }
   ButtonTap() {
     let self = this
-    if (self.src.length >= 3) {
+    if (self.src.length >= 8) {
       wepy.showToast({
-        title: '只能放三张哦',
+        title: '只能放8张哦',
         icon: 'success',
         duration: 1000
       })
