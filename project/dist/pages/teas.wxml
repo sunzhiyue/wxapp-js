@@ -2,7 +2,7 @@
   <view class="back">
     <view class="center">
       <view class="view">
-      <image class="logo" src="{{logo}}"/>
+      <image class="logo" src="{{log}}"/>
         <text>手机摄影大赛</text>
         </view>
       <text>欢迎您对本小程序的各种吐槽!</text>

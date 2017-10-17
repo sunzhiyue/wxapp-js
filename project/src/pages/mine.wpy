@@ -103,7 +103,7 @@
 
 <script>
 import wepy from 'wepy'
-export default class Index extends wepy.page {
+export default class Mine extends wepy.page {
   config = {
     navigationBarTitleText: '我的'
   }
@@ -120,17 +120,17 @@ export default class Index extends wepy.page {
   methods = {
     praiseTap() {
       wepy.navigateTo({
-        url: 'mine/praise'
+        url: 'praise'
       })
     },
     teasTap() {
       wepy.navigateTo({
-        url: 'mine/teas'
+        url: 'teas'
       })
     },
     aboutTap() {
       wepy.navigateTo({
-        url: 'mine/about'
+        url: 'about'
       })
     }
   };
@@ -147,6 +147,10 @@ export default class Index extends wepy.page {
       success(res) {
         self.nickName = res.userInfo.nickName
         self.avatarUrl = res.userInfo.avatarUrl
+        self.setData({
+          avatarUrl: res.userInfo.avatarUrl,
+          nickName: res.userInfo.nickName
+        })
       }
     })
   }

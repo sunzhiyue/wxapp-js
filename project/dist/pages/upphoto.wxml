@@ -1,5 +1,5 @@
 
-  <view class="background" style="height: {{height}}px">
+  <view class="background" style="height: {{height}}px; width: {{width}}px">
     <view class="section">
       <textarea bindblur="bindTextAreaBlur" placeholder="描述你的作品..."/>
     </view>

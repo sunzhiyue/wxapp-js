@@ -61,6 +61,7 @@
   flex-direction: row;
   font-size: 15px;
 }
+
 .praise {
   height: 15px;
   width: 15px;

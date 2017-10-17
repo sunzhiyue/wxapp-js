@@ -61,6 +61,7 @@
   flex-direction: row;
   font-size: 15px;
 }
+
 .praise {
   height: 15px;
   width: 15px;
@@ -100,7 +101,7 @@
     </view>
     <view class="swiper">
       <swiper class="slide-image" indicator-dots="{{indicatorDots}}" autoplay="true" interval="3000" duration="1000" circular="true" indicator-dots="true" current="{{}}">
-        <block wx:for="{{imgUrls}}">
+        <block wx:for="{{imgUrls}}" wx:key="index">
           <swiper-item>
             <image class="slide-image" src="{{item}}" />
           </swiper-item>
@@ -114,12 +115,12 @@
     <view class="show">
       <view class="production">
         <block wx:for="{{production}}" wx:key="index">
-          <view class="recommend">
+          <view @tap="recTap" class="recommend">
             <text class="recName">{{item.recName}}</text>
             <image class="recPhoto" src="{{item.recPhoto}}" mode="scaleToFill" />
-            <view class = "prais">
+            <view class="prais">
               <view class="center">
-              <image class="praise" src="{{praise}}" />
+                <image class="praise" src="{{praise}}" />
               </view>
               <text class="Number">{{item.recNumber}}</text>
             </view>
@@ -133,7 +134,8 @@
 
 <script>
 import wepy from 'wepy'
-export default class Index extends wepy.page {
+// import content from '../util/content.js'
+export default class Homepage extends wepy.page {
   config = {
     navigationBarTitleText: '手机摄影大赛'
   }
@@ -154,10 +156,10 @@ export default class Index extends wepy.page {
     search: '../image/search.png',
     praise: '../image/praise.png',
     production: [
-      { recName: 'haha', recPhoto: 'https://img.25pp.com/uploadfile/bizhi/iphone6p/20160506/1462497573316537_390x690.jpg' },
-      { recName: 'haha', recPhoto: 'https://img.25pp.com/uploadfile/bizhi/iphone6p/20160422/1461287166190361_390x690.jpeg' },
-      { recName: 'haha', recPhoto: 'https://img.25pp.com/uploadfile/bizhi/iphone6p/20160506/1462497573316537_390x690.jpg', recNumber: '30' },
-      { recName: 'haha', recPhoto: 'https://img.25pp.com/uploadfile/bizhi/iphone6p/20160506/1462497573316537_390x690.jpg', recNumber: '30' },
+      { recName: '大海', recPhoto: 'https://img.25pp.com/uploadfile/bizhi/iphone6p/20160803/1470208048682044_390x690.jpg', recNumber: '50' },
+      { recName: '猫', recPhoto: 'https://img.25pp.com/uploadfile/bizhi/iphone6p/20160422/1461287166190361_390x690.jpeg', recNumber: '40' },
+      { recName: '大山', recPhoto: 'https://img.25pp.com/uploadfile/bizhi/iphone6p/20160803/1470208050838529_390x690.jpg', recNumber: '30' },
+      { recName: '树', recPhoto: 'https://img.25pp.com/uploadfile/bizhi/iphone6p/20160817/1471396487530350_390x690.jpg', recNumber: '30' },
       { recName: 'haha', recPhoto: 'https://img.25pp.com/uploadfile/bizhi/iphone6p/20160506/1462497573316537_390x690.jpg', recNumber: '30' },
       { recName: '花', recPhoto: 'http://isujin.com/wp-content/uploads/2017/09/wallhaven-33397.jpg', recNumber: '12' }
     ]

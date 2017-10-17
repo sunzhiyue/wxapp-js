@@ -16,7 +16,7 @@
 
 <script>
 import wepy from 'wepy'
-export default class Index extends wepy.page {
+export default class Up extends wepy.page {
   config = {
     navigationBarTitleText: '搜索'
   }

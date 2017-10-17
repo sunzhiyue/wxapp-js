@@ -20,9 +20,9 @@ export default class extends wepy.app {
       'pages/mine',
       'pages/upphoto',
       'pages/up',
-      'pages/mine/praise',
-      'pages/mine/about',
-      'pages/mine/teas'
+      'pages/praise',
+      'pages/about',
+      'pages/teas'
     ],
     window: {
       backgroundTextStyle: 'light',
