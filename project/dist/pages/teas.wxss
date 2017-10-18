@@ -1,7 +1,6 @@
 
 .logo {
-  height: 140rpx;
-  width: 140rpx;
+  height: 160rpx;
 }
 
 .center {
@@ -9,15 +8,24 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 600rpx;
+  height: 400rpx;
 }
 .view {
-  margin: 100rpx 0rpx 100rpx 0rpx;
+  margin: 80rpx 0rpx 40rpx 0rpx;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 .back {
   
+}
+.textarea {
+  height: 9rem;
+  border: 1px solid #9e9d9d;
+  margin: 20px;
+  border-radius: 6px;
+}
+.button {
+  margin: 20px;
 }
 

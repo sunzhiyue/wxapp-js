@@ -34,10 +34,10 @@ var Teas = function (_wepy$page) {
     }
 
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Teas.__proto__ || Object.getPrototypeOf(Teas)).call.apply(_ref, [this].concat(args))), _this), _this.config = {
-      navigationBarTitleText: '在这里上传作品'
+      navigationBarTitleText: '吐槽吐槽'
     }, _this.data = {
       src: '',
-      log: '../image/logo1.jpg'
+      logo: '../image/camera.png'
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
@@ -52,4 +52,4 @@ var Teas = function (_wepy$page) {
 
 Page(require('./../npm/wepy/lib/wepy.js').default.$createPage(Teas , 'pages/teas'));
 
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInRlYXMuanMiXSwibmFtZXMiOlsiVGVhcyIsImNvbmZpZyIsIm5hdmlnYXRpb25CYXJUaXRsZVRleHQiLCJkYXRhIiwic3JjIiwibG9nIiwicGFnZSJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7O0FBQ0E7Ozs7Ozs7Ozs7OztJQUNxQkEsSTs7Ozs7Ozs7Ozs7Ozs7a0xBQ25CQyxNLEdBQVM7QUFDUEMsOEJBQXdCO0FBRGpCLEssUUFHVEMsSSxHQUFPO0FBQ0xDLFdBQUssRUFEQTtBQUVMQyxXQUFLO0FBRkEsSzs7Ozs7NkJBSUUsQ0FBRTs7OztFQVJxQixlQUFLQyxJOztrQkFBbEJOLEkiLCJmaWxlIjoidGVhcy5qcyIsInNvdXJjZXNDb250ZW50IjpbIlxuaW1wb3J0IHdlcHkgZnJvbSAnd2VweSdcbmV4cG9ydCBkZWZhdWx0IGNsYXNzIFRlYXMgZXh0ZW5kcyB3ZXB5LnBhZ2Uge1xuICBjb25maWcgPSB7XG4gICAgbmF2aWdhdGlvbkJhclRpdGxlVGV4dDogJ+WcqOi/memHjOS4iuS8oOS9nOWTgSdcbiAgfVxuICBkYXRhID0ge1xuICAgIHNyYzogJycsXG4gICAgbG9nOiAnLi4vaW1hZ2UvbG9nbzEuanBnJ1xuICB9XG4gIG9uTG9hZCgpIHt9XG59XG4iXX0=
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInRlYXMuanMiXSwibmFtZXMiOlsiVGVhcyIsImNvbmZpZyIsIm5hdmlnYXRpb25CYXJUaXRsZVRleHQiLCJkYXRhIiwic3JjIiwibG9nbyIsInBhZ2UiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7OztBQUNBOzs7Ozs7Ozs7Ozs7SUFDcUJBLEk7Ozs7Ozs7Ozs7Ozs7O2tMQUNuQkMsTSxHQUFTO0FBQ1BDLDhCQUF3QjtBQURqQixLLFFBR1RDLEksR0FBTztBQUNMQyxXQUFLLEVBREE7QUFFTEMsWUFBTTtBQUZELEs7Ozs7OzZCQUlFLENBQUU7Ozs7RUFScUIsZUFBS0MsSTs7a0JBQWxCTixJIiwiZmlsZSI6InRlYXMuanMiLCJzb3VyY2VzQ29udGVudCI6WyJcbmltcG9ydCB3ZXB5IGZyb20gJ3dlcHknXG5leHBvcnQgZGVmYXVsdCBjbGFzcyBUZWFzIGV4dGVuZHMgd2VweS5wYWdlIHtcbiAgY29uZmlnID0ge1xuICAgIG5hdmlnYXRpb25CYXJUaXRsZVRleHQ6ICflkJDmp73lkJDmp70nXG4gIH1cbiAgZGF0YSA9IHtcbiAgICBzcmM6ICcnLFxuICAgIGxvZ286ICcuLi9pbWFnZS9jYW1lcmEucG5nJ1xuICB9XG4gIG9uTG9hZCgpIHt9XG59XG4iXX0=

@@ -1,0 +1,13 @@
+
+  <view class="">
+    <view class="name">《{{recName}}》
+      <image class="praise" src="{{praise}}"/>
+    </view>
+
+    <view>{{describe}}</view>
+    <view class="image">
+      <image src="{{recPhoto}}"/>
+      
+
+    </view>
+  </view>

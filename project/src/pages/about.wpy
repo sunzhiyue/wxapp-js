@@ -6,7 +6,7 @@
 </template>
 
 <script>
-export default {
-
+import wepy from 'wepy'
+export default class About extends wepy.page {
 }
 </script>

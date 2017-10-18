@@ -1,0 +1,57 @@
+<style>
+.name{
+  font-size: 30px;
+  margin: 40rpx 30rpx;
+  display: flex;
+  justify-content: space-around;
+}
+.image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.praise {
+  height: 30px;
+  width: 30px;
+}
+</style>
+<template>
+  <view class="">
+    <view class = "name">《{{recName}}》
+      <image class = "praise" src = "{{praise}}"/>
+    </view>
+
+    <view>{{describe}}</view>
+    <view class="image">
+      <image src="{{recPhoto}}" />
+      
+
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+export default class Show extends wepy.page {
+  config = {
+    navigationBarTitleText: '人气推荐'
+  }
+  data = {
+    src: '',
+    recName: '',
+    recPhoto: '',
+    describe: '',
+    recNumber: 0,
+    praise: '../image/praise.png'
+
+  }
+  onLoad(data) {
+    let self = this
+    self.recName = data.recName
+    self.recPhoto = data.recPhoto
+    self.default = data.default
+    self.recNumber = data.recNumber
+    console.log(self.recPhoto)
+  }
+}
+</script>

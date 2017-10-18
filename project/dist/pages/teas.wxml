@@ -2,10 +2,17 @@
   <view class="back">
     <view class="center">
       <view class="view">
-      <image class="logo" src="{{log}}"/>
+      <image class="logo" src="{{logo}}" mode="aspectFit"/>
         <text>手机摄影大赛</text>
         </view>
       <text>欢迎您对本小程序的各种吐槽!</text>
-
+    </view>
+    <view>
+      <view class="textarea">
+      <textarea bindblur="bindTextAreaBlur" placeholder="请开始你的吐槽。。。"/>
+    </view>
+    <view class="button">
+      <button type="primary">点击这里提交</button>
+    </view>
     </view>
   </view>

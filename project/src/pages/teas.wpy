@@ -1,7 +1,6 @@
 <style>
 .logo {
-  height: 140rpx;
-  width: 140rpx;
+  height: 160rpx;
 }
 
 .center {
@@ -9,10 +8,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 600rpx;
+  height: 400rpx;
 }
 .view {
-  margin: 100rpx 0rpx 100rpx 0rpx;
+  margin: 80rpx 0rpx 40rpx 0rpx;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,17 +19,33 @@
 .back {
   
 }
+.textarea {
+  height: 9rem;
+  border: 1px solid #9e9d9d;
+  margin: 20px;
+  border-radius: 6px;
+}
+.button {
+  margin: 20px;
+}
 
 </style>
 <template>
   <view class = "back">
     <view class="center">
       <view class = "view">
-      <image class="logo" src="{{log}}"/>
+      <image class= "logo" src = "{{logo}}" mode = "aspectFit"/>
         <text>手机摄影大赛</text>
         </view>
       <text>欢迎您对本小程序的各种吐槽!</text>
-
+    </view>
+    <view>
+      <view class="textarea">
+      <textarea bindblur="bindTextAreaBlur" placeholder="请开始你的吐槽。。。" />
+    </view>
+    <view class = "button">
+      <button type="primary">点击这里提交</button>
+    </view>
     </view>
   </view>
 </template>
@@ -39,11 +54,11 @@
 import wepy from 'wepy'
 export default class Teas extends wepy.page {
   config = {
-    navigationBarTitleText: '在这里上传作品'
+    navigationBarTitleText: '吐槽吐槽'
   }
   data = {
     src: '',
-    log: '../image/logo1.jpg'
+    logo: '../image/camera.png'
   }
   onLoad() {}
 }
