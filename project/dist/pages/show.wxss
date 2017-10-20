@@ -1,16 +1,39 @@
 
-.name{
+.name {
   font-size: 30px;
-  margin: 40rpx 30rpx;
-  display: flex;
-  justify-content: space-around;
 }
-.image {
-  display: flex;
+.center {
+  display:flex;
   flex-direction: column;
+}
+.view {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
+  margin: 20rpx;
 }
 .praise {
-  height: 30px;
-  width: 30px;
+display: flex;
+justify-content: space-between;
+align-items: center;
 }
+.photo {
+height: 30px;
+width: 30px;
+}
+.number{
+  font-size: 30px;
+}
+.image{
+  display: flex;
+  justify-content: center;
+  
+}
+.describe{
+  float: left;
+  font-size: 20px;
+  color: #6a6a6a;
+  margin: 20rpx;
+}
+

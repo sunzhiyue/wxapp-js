@@ -10,10 +10,11 @@
 .section {
   display: flex;
   align-content: center;
-  border: 1px solid grey;
-  border-radius: 5px;
+  border: 0.5px solid #d0cece;
+  border-radius: 7px;
   background-color: white;
   justify-content: center;
+  height: 65rpx;
 }
 
 .slide-image {
@@ -22,8 +23,8 @@
 }
 
 .background {
-  background-color: #cdcdcd;
-  padding: 10px;
+  background-color: #eee;
+  padding: 7px;
 }
 
 .search {
@@ -82,7 +83,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  
+
 }
 
 .center {
@@ -147,14 +148,7 @@ export default class Homepage extends wepy.page {
     ],
     search: '../image/search.png',
     praise: '../image/praise.png',
-    production: [
-      { recName: '大海', recPhoto: 'https://img.25pp.com/uploadfile/bizhi/iphone6p/20160803/1470208048682044_390x690.jpg', recNumber: '50' },
-      { recName: '猫', recPhoto: 'https://img.25pp.com/uploadfile/bizhi/iphone6p/20160422/1461287166190361_390x690.jpeg', recNumber: '40' },
-      { recName: '大山', recPhoto: 'https://img.25pp.com/uploadfile/bizhi/iphone6p/20160803/1470208050838529_390x690.jpg', recNumber: '30' },
-      { recName: '树', recPhoto: 'https://img.25pp.com/uploadfile/bizhi/iphone6p/20160817/1471396487530350_390x690.jpg', recNumber: '30' },
-      { recName: 'haha', recPhoto: 'https://img.25pp.com/uploadfile/bizhi/iphone6p/20160506/1462497573316537_390x690.jpg', recNumber: '30' },
-      { recName: '花', recPhoto: 'http://isujin.com/wp-content/uploads/2017/09/wallhaven-33397.jpg', recNumber: '12' }
-    ],
+    describe: '',
     content: null
   }
   methods = {
@@ -168,7 +162,7 @@ export default class Homepage extends wepy.page {
       let item = self.content[e.currentTarget.id]
       console.log(e)
       wepy.navigateTo({
-        url: `./show?recName=${item.recName}&recPhoto=${item.recPhoto}`
+        url: `./show?recName=${item.recName}&recPhoto=${item.recPhoto}&recNumber=${item.recNumber}&describe=${item.describe}`
       })
     }
   }

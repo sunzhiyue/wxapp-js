@@ -8,23 +8,36 @@
   margin-bottom: 15px;
 }
 
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 .background {
-  background-color: #dcdcdc;
+  background-color: #eee;
+  width: 100%;
 }
 
 .section {
   height: 9rem;
+  width: 660rpx;
   background-color: #fff;
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid #eee;
   padding: 6px;
+  border-radius: 7px;
+  margin-top: 30rpx;
 }
 
 .photoName {
-  height: 30px;
+  height: 60rpx;
+  width: 660rpx;
   background-color: #fff;
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid #eee;
   margin-top: 20px;
   padding: 6px;
+  border-radius: 7px;
 }
 
 .upPhoto {
@@ -32,23 +45,31 @@
   padding: 10px;
   display: flex;
   flex-direction: row;
-  width: 100%;
   margin: 10px 6px;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
+  border-radius:
 }
+
 .image {
   height: 4.4rem;
   width: 4.4rem;
   margin-right: 6px;
 }
+
 .image-button {
   height: 4.4rem;
   width: 4.4rem;
-
 }
+
 .button {
   height: 4.4rem;
   width: 4.4rem;
   border: 1px dotted grey;
+  border-radius: 7px;
+}
 
+.height {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

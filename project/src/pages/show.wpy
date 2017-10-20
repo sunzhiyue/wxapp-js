@@ -1,31 +1,61 @@
 <style>
-.name{
+.name {
   font-size: 30px;
-  margin: 40rpx 30rpx;
-  display: flex;
-  justify-content: space-around;
 }
-.image {
-  display: flex;
+.center {
+  display:flex;
   flex-direction: column;
+}
+.view {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
+  margin: 20rpx;
 }
 .praise {
-  height: 30px;
-  width: 30px;
+display: flex;
+justify-content: space-between;
+align-items: center;
 }
+.photo {
+height: 30px;
+width: 30px;
+}
+.number{
+  font-size: 30px;
+}
+.image{
+  display: flex;
+  justify-content: center;
+  
+}
+.describe{
+  float: left;
+  font-size: 20px;
+  color: #6a6a6a;
+  margin: 20rpx;
+}
+
 </style>
 <template>
-  <view class="">
-    <view class = "name">《{{recName}}》
-      <image class = "praise" src = "{{praise}}"/>
+  <view class = "center">
+    <view class = "view">
+      <view class = "name">
+        <text>《{{recName}}》</text>
+      </view>
+      <view class = "praise">
+        <image class = "photo" src = "{{praise}}"/>
+        <view>
+          <text class = "number">{{recNumber}}</text>
+        </view>
+      </view>
     </view>
-
-    <view>{{describe}}</view>
-    <view class="image">
-      <image src="{{recPhoto}}" />
-      
-
+    <view class = "describe">
+      <text space = "nbsp">{{describe}}</text>
+      </view>
+    <view class = "image">
+      <image src = "{{recPhoto}}" mode = "widthFix"/>
     </view>
   </view>
 </template>
@@ -49,7 +79,7 @@ export default class Show extends wepy.page {
     let self = this
     self.recName = data.recName
     self.recPhoto = data.recPhoto
-    self.default = data.default
+    self.describe = data.describe
     self.recNumber = data.recNumber
     console.log(self.recPhoto)
   }

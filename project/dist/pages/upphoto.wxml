@@ -1,10 +1,14 @@
 
-  <view class="background" style="height: {{height}}px; width: {{width}}px">
-    <view class="section">
-      <textarea bindblur="bindTextAreaBlur" placeholder="描述你的作品..."/>
+  <view class="background" style="height: {{height}}px;">
+    <view class="height">
+      <view class="section">
+        <textarea bindblur="bindTextAreaBlur" placeholder="描述你的作品..."/>
+      </view>
     </view>
-    <view class="photoName">
-      <input bindblur="bindTextAreaBlur" placeholder="给你的作品起个名" maxlength="7"/>
+    <view class="center">
+      <view class="photoName">
+        <input bindblur="bindTextAreaBlur" placeholder="给你的作品起个名" maxlength="7"/>
+      </view>
     </view>
 
     <view class="upPhoto">
@@ -14,7 +18,8 @@
         </view>
       </block>
       <view class="button" bindtap="ButtonTap">
-      <image class="image-button" src="{{buttonUp}}"/></view>
+        <image class="image-button" src="{{buttonUp}}"/>
+      </view>
     </view>
     <view class="up">
       <button bindtap="up">上传</button>

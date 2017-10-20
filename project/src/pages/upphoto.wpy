@@ -8,23 +8,36 @@
   margin-bottom: 15px;
 }
 
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 .background {
-  background-color: #dcdcdc;
+  background-color: #eee;
+  width: 100%;
 }
 
 .section {
   height: 9rem;
+  width: 660rpx;
   background-color: #fff;
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid #eee;
   padding: 6px;
+  border-radius: 7px;
+  margin-top: 30rpx;
 }
 
 .photoName {
-  height: 30px;
+  height: 60rpx;
+  width: 660rpx;
   background-color: #fff;
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid #eee;
   margin-top: 20px;
   padding: 6px;
+  border-radius: 7px;
 }
 
 .upPhoto {
@@ -32,34 +45,46 @@
   padding: 10px;
   display: flex;
   flex-direction: row;
-  width: 100%;
   margin: 10px 6px;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
+  border-radius:
 }
+
 .image {
   height: 4.4rem;
   width: 4.4rem;
   margin-right: 6px;
 }
+
 .image-button {
   height: 4.4rem;
   width: 4.4rem;
-
 }
+
 .button {
   height: 4.4rem;
   width: 4.4rem;
   border: 1px dotted grey;
+  border-radius: 7px;
+}
 
+.height {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>
 <template>
-  <view class="background" style="height: {{height}}px; width: {{width}}px">
-    <view class="section">
-      <textarea bindblur="bindTextAreaBlur" placeholder="描述你的作品..." />
+  <view class="background" style="height: {{height}}px;">
+    <view class="height">
+      <view class="section">
+        <textarea bindblur="bindTextAreaBlur" placeholder="描述你的作品..." />
+      </view>
     </view>
-    <view class="photoName">
-      <input bindblur="bindTextAreaBlur" placeholder="给你的作品起个名" maxlength="7" />
+    <view class="center">
+      <view class="photoName">
+        <input bindblur="bindTextAreaBlur" placeholder="给你的作品起个名" maxlength="7" />
+      </view>
     </view>
 
     <view class="upPhoto">
@@ -68,8 +93,9 @@
           <image class="image" mode="scaleToFill" src="{{item}}"></image>
         </view>
       </block>
-      <view class = "button" @tap="ButtonTap" >
-      <image class="image-button" src= "{{buttonUp}}"/></view>
+      <view class="button" @tap="ButtonTap">
+        <image class="image-button" src="{{buttonUp}}" />
+      </view>
     </view>
     <view class="up">
       <button @tap="up">上传</button>
@@ -113,8 +139,8 @@ export default class Index extends wepy.page {
       success: function(res) {
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
         let arr = self.src
-        arr.push(res.tempFilePaths[0])
-        self.src = arr
+        let a = arr.concat(res.tempFilePaths)
+        self.src = a
         self.setData({
           src: arr
         })
@@ -127,12 +153,8 @@ export default class Index extends wepy.page {
       success(res) {
         console.log(res)
         self.height = res.windowHeight
-        self.width = res.windowWidth
       }
     })
-  }
-  onReachBottom() {
-    console.log('......')
   }
 }
 </script>

@@ -1,13 +1,20 @@
 
-  <view class="">
-    <view class="name">《{{recName}}》
-      <image class="praise" src="{{praise}}"/>
+  <view class="center">
+    <view class="view">
+      <view class="name">
+        <text>《{{recName}}》</text>
+      </view>
+      <view class="praise">
+        <image class="photo" src="{{praise}}"/>
+        <view>
+          <text class="number">{{recNumber}}</text>
+        </view>
+      </view>
     </view>
-
-    <view>{{describe}}</view>
+    <view class="describe">
+      <text space="nbsp">{{describe}}</text>
+      </view>
     <view class="image">
-      <image src="{{recPhoto}}"/>
-      
-
+      <image src="{{recPhoto}}" mode="widthFix"/>
     </view>
   </view>
