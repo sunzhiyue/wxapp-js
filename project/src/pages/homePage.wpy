@@ -37,12 +37,10 @@
 }
 
 .show {
-  height: 800rpx;
-  margin: 10px;
+  margin: 20rpx;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-direction: row;
-  flex-wrap: wrap;
 }
 
 .popularity {
@@ -55,7 +53,7 @@
   flex-direction: column;
   justify-content: center;
   align-content: center;
-
+  
 }
 
 .prais {
@@ -75,7 +73,8 @@
 }
 
 .recName {
-  font-size: 30px;
+  font-size: 20px;
+  width: 9rem;
 }
 
 .production {
@@ -83,7 +82,6 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-
 }
 
 .center {
@@ -137,14 +135,16 @@ import wepy from 'wepy'
 import content from '../util/content.js'
 export default class Homepage extends wepy.page {
   config = {
-    navigationBarTitleText: '手机摄影大赛'
+    navigationBarTitleText: '手机摄影大赛',
+    enablePullDownRefresh: 'true'
   }
   data = {
     src: '',
     imgUrls: [
-      '../image/u=2491534892,1740729406&fm=27&gp=0.jpg',
-      '../image/photo.jpg',
-      '../image/u=3191467671,3952424653&fm=200&gp=0.jpg'
+      'http://isujin.com/wp-content/uploads/2017/03/wallhaven-80053-300x188.jpg',
+      'http://isujin.com/wp-content/uploads/2016/10/wallhaven-322712-1-300x166.jpg',
+      'http://isujin.com/wp-content/uploads/2016/10/wallhaven-264271-300x188.jpg',
+      'http://isujin.com/wp-content/uploads/2016/10/wallhaven-419554-300x169.jpg'
     ],
     search: '../image/search.png',
     praise: '../image/praise.png',
@@ -169,6 +169,12 @@ export default class Homepage extends wepy.page {
   onLoad() {
     let self = this
     self.content = content
+  }
+  onPullDownRefresh() {
+    wepy.startPullDownRefresh()
+    setTimeout(function () {
+      wepy.stopPullDownRefresh()
+    }, 1000)
   }
 }
 </script>

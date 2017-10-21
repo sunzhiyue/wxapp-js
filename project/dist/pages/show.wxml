@@ -5,7 +5,7 @@
         <text>《{{recName}}》</text>
       </view>
       <view class="praise">
-        <image class="photo" src="{{praise}}"/>
+        <image class="photo" src="{{praise ? '../image/elect.png' : elect}}" bindtap="praise"/>
         <view>
           <text class="number">{{recNumber}}</text>
         </view>

@@ -45,7 +45,7 @@ width: 30px;
         <text>《{{recName}}》</text>
       </view>
       <view class = "praise">
-        <image class = "photo" src = "{{praise}}"/>
+        <image class = "photo" src = "{{praise ? '../image/elect.png' : elect}}" @tap = "praise" />
         <view>
           <text class = "number">{{recNumber}}</text>
         </view>
@@ -73,7 +73,17 @@ export default class Show extends wepy.page {
     describe: '',
     recNumber: 0,
     praise: '../image/praise.png'
-
+  }
+  methods = {
+    praise() {
+      let self = this
+      self.elect = !self.elect
+      if (self.elect) {
+        self.recNumber++
+      } else {
+        self.recNumber--
+      }
+    }
   }
   onLoad(data) {
     let self = this
