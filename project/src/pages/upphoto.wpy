@@ -47,7 +47,6 @@
   flex-direction: row;
   margin: 10px 6px;
   flex-wrap: wrap;
-  border-radius:
 }
 
 .image {

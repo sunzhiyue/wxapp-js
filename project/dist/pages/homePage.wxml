@@ -9,18 +9,20 @@
       </view>
     </view>
     <view class="swiper">
-      <swiper class="slide-image" indicator-dots="true" autoplay="true" interval="3000" duration="1000" circular="true" current="{{}}">
+      <swiper class="slide-image" autoplay="true" interval="3000" duration="1000" circular="true" current="{{}}">
         <block  wx:for="{{imgUrls}}" wx:key="index">
           <swiper-item>
             <image class="slide-image" src="{{item}}"/>
           </swiper-item>
         </block>
+        <view class=" top"/>
       </swiper>
-    </view>
 
+    </view>
     <view class="popularity">
       <text>人气推荐</text>
     </view>
+
     <view class="show">
       <view class="production">
         <view bindtap="recTap" class="recommend"  wx:for="{{content}}" wx:key="index" id="{{index}}">
