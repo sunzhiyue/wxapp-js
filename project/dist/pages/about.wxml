@@ -1,2 +1,7 @@
 
-<view>aa</view>
+  <view>
+    <view class="cerent">
+      <image src="{{}}" class="image"/>
+      <text>越越越哥</text>
+    </view>
+  </view>

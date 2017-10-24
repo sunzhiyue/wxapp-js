@@ -15,7 +15,7 @@
             <image class="slide-image" src="{{item}}"/>
           </swiper-item>
         </block>
-        <view class=" top"/>
+        <view class="top"/>
       </swiper>
 
     </view>

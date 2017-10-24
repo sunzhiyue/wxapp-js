@@ -1,2 +1,12 @@
 
-
+.image {
+  height: 70rpx;
+  width: 70rpx;
+  border-radius: 50%
+}
+.cerent {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}

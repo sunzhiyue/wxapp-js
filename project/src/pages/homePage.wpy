@@ -127,7 +127,7 @@
             <image class="slide-image" src="{{item}}" />
           </swiper-item>
         </block>
-        <view class=" top"></view>
+        <view class = "top"></view>
       </swiper>
 
     </view>

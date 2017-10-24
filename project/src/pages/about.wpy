@@ -1,12 +1,30 @@
 <style>
-
+.image {
+  height: 70rpx;
+  width: 70rpx;
+  border-radius: 50%
+}
+.cerent {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
 </style>
 <template>
-<view>aa</view>  
+  <view>
+    <view class = "cerent">
+      <image src="{{}}" class="image" />
+      <text>越越越哥</text>
+    </view>
+  </view>
 </template>
 
 <script>
 import wepy from 'wepy'
 export default class About extends wepy.page {
+  config = {
+    navigationBarTitleText: '关于'
+  }
 }
 </script>
