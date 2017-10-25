@@ -1,10 +1,10 @@
 
   <view class="back">
     <view class="center">
-      <view class="view">
-      <image class="logo" src="{{logo}}" mode="aspectFit"/>
-        <text>手机摄影大赛</text>
-        </view>
+      <view class="view"> 
+        <image class="logo" src="{{logo}}"/>
+        <text>我是客服</text>
+      </view>
       <text>欢迎您对本小程序的各种吐槽!</text>
     </view>
     <view>

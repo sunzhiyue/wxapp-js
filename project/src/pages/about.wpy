@@ -1,8 +1,6 @@
 <style>
 .image {
-  height: 70rpx;
-  width: 70rpx;
-  border-radius: 50%
+  height: 160rpx;
 }
 .cerent {
   display: flex;
@@ -10,12 +8,36 @@
   flex-direction: column;
   align-items: center;
 }
+.text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cerent-image {
+  margin-top: 200rpx;
+}
+.describe {
+  margin-left: 30rpx;
+  font-size: 32rpx;
+  margin-top: 50rpx;
+  display: flex;
+  justify-content: center;
+}
+
 </style>
 <template>
   <view>
     <view class = "cerent">
-      <image src="{{}}" class="image" />
-      <text>越越越哥</text>
+      <view class = "cerent-image">
+        <image src="{{portrait}}" class="image" mode = "aspectFit" />
+      </view>
+
+      <view class = "text">
+        <text>手机摄影大赛</text>
+      </view>
+      <view class = "describe">
+        <text String= "nbsp">  希望热爱摄影的小伙伴们能多多参与本小程序！</text>
+      </view>
     </view>
   </view>
 </template>
@@ -25,6 +47,10 @@ import wepy from 'wepy'
 export default class About extends wepy.page {
   config = {
     navigationBarTitleText: '关于'
-  }
+  };
+  data = {
+    src: '',
+    portrait: '../image/camera.png'
+  };
 }
 </script>

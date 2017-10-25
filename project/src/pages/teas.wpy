@@ -1,6 +1,8 @@
 <style>
 .logo {
-  height: 160rpx;
+  height: 150rpx;
+  width: 150rpx;
+  border-radius: 50%;
 }
 
 .center {
@@ -33,10 +35,10 @@
 <template>
   <view class = "back">
     <view class="center">
-      <view class = "view">
-      <image class= "logo" src = "{{logo}}" mode = "aspectFit"/>
-        <text>手机摄影大赛</text>
-        </view>
+      <view class = "view"> 
+        <image class= "logo" src = "{{logo}}" />
+        <text>我是客服</text>
+      </view>
       <text>欢迎您对本小程序的各种吐槽!</text>
     </view>
     <view>
@@ -58,7 +60,7 @@ export default class Teas extends wepy.page {
   }
   data = {
     src: '',
-    logo: '../image/camera.png'
+    logo: 'https://avatars1.githubusercontent.com/u/31921245?s=460&v=4'
   }
   onLoad() {}
 }
