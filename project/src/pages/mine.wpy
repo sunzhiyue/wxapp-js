@@ -75,6 +75,7 @@
 }
 </style>
 <template>
+  <view>
   <view class="background" style="height: {{height}}px">
     <view class="">
       <view class="id">
@@ -100,6 +101,7 @@
       </view>
 
     </view>
+  </view>
   </view>
 </template>
 

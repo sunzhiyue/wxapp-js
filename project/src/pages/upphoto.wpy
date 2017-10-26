@@ -6,6 +6,7 @@
   display: flex;
   justify-content: center;
   margin-bottom: 15px;
+  background-color: rgba(red, green, blue, 0.2);
 }
 
 .center {
@@ -18,16 +19,25 @@
 .background {
   background-color: #eee;
   width: 100%;
+  background-image: url(https://img.25pp.com/uploadfile/bizhi/iphone6p/20160523/1463967373756905_390x690.png);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100%;
+  height: 100%;
+  width: 100%;
+  background-position-y: 60%;
 }
 
 .section {
   height: 9rem;
   width: 660rpx;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.8);
   border-bottom: 1px solid #eee;
   padding: 6px;
   border-radius: 7px;
   margin-top: 30rpx;
+  box-shadow: 2px 2px 10px #eee;
+
 }
 
 .photoName {
@@ -38,6 +48,7 @@
   margin-top: 20px;
   padding: 6px;
   border-radius: 7px;
+  box-shadow: 2px 2px 10px #eee;
 }
 
 .upPhoto {
@@ -65,6 +76,7 @@
   width: 4.4rem;
   border: 1px dotted grey;
   border-radius: 7px;
+  box-shadow: 2px 2px 10px #eee;
 }
 
 .height {
@@ -72,8 +84,24 @@
   justify-content: center;
   align-items: center;
 }
+.back {
+  background-color: #fff;
+}
+.uptap {
+  width: 150rpx;
+  height: 70rpx;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid #9c9c9c;
+  border-radius: 7px;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 2px 2px 10px #eee;
+}
 </style>
 <template>
+<view class = "back">
   <view class="background" style="height: {{height}}px;">
     <view class="height">
       <view class="section">
@@ -96,9 +124,10 @@
         <image class="image-button" src="{{buttonUp}}" />
       </view>
     </view>
-    <view class="up">
-      <button @tap="up">上传</button>
+    <view class="up" >
+      <view class = "uptap" @tap="up">上传</view>
     </view>
+  </view>
   </view>
 </template>
 
@@ -106,7 +135,10 @@
 import wepy from 'wepy'
 export default class Index extends wepy.page {
   config = {
-    navigationBarTitleText: '在这里上传作品'
+    navigationBarTitleText: '在这里上传作品',
+    window: {
+      backgroundTextStyle: 'light'
+    }
   }
   data = {
     src: [],
@@ -132,16 +164,24 @@ export default class Index extends wepy.page {
       return
     }
     wepy.chooseImage({
-      count: 9, // 默认9
+      count: 8, // 默认9
       sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
       sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
       success: function(res) {
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
         let arr = self.src
         let a = arr.concat(res.tempFilePaths)
+        if (a.length > 8) {
+          wepy.showToast({
+            title: '只能放8张哦',
+            icon: 'success',
+            duration: 1000
+          })
+          return
+        }
         self.src = a
         self.setData({
-          src: arr
+          src: a
         })
       }
     })

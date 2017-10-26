@@ -1,4 +1,5 @@
 
+<view class="back">
   <view class="background" style="height: {{height}}px;">
     <view class="height">
       <view class="section">
@@ -22,6 +23,7 @@
       </view>
     </view>
     <view class="up">
-      <button bindtap="up">上传</button>
+      <view class="uptap" bindtap="up">上传</view>
     </view>
+  </view>
   </view>
