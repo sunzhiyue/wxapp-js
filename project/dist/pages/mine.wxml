@@ -4,7 +4,9 @@
     <view class="">
       <view class="id">
         <view class="userinfo">
-          <image class="userinfo-avatar" src="{{ avatarUrl }}"/>
+          <view class="userinfo-avatar">
+            <image class="userinfo-avatar" src="{{ avatarUrl }}"/>
+          </view>
           <view class="userinfo-nickname">{{ nickName }}</view>
         </view>
       </view>

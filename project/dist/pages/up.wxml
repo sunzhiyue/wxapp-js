@@ -1,6 +1,6 @@
 
   <view>
     <view class="find">
-      <input placeholder="搜索" auto-focus/>
+      <input placeholder="寻找作品" auto-focus/>
     </view>
   </view>

@@ -1,13 +1,71 @@
 <style>
+.show {
+  margin: 40rpx 20rpx;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+.production {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.recommend {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+.recName {
+  font-size: 20px;
+  width: 9rem;
+}
+.recPhoto {
+  border-radius: 10px;
+  width: 9rem;
+  box-shadow: 10rpx 5rpx 15px #4b5885;
+}
+.prais {
+  display: flex;
+  flex-direction: row;
+  font-size: 15px;
+}
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.praise {
+  height: 15px;
+  width: 15px;
+}
 
 </style>
 <template>
-<view>bb</view>  
+<view>
+  <view class="show">
+    <view class="production">
+      <view @tap="recTap" class="recommend" wx:for="{{content}}" wx:key="index" id="{{index}}">
+        <text class="recName">{{item.recName}}</text>
+        <image class="recPhoto" src="{{item.recPhoto}}" mode="scaleToFill" />
+        <view class="prais">
+          <view class="center">
+            <image class="praise" src="{{praise}}" />
+          </view>
+          <text class="Number">{{item.recNumber}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>  
 </template>
 
 <script>
 import wepy from 'wepy'
-export default class Show extends wepy.page {
-
+export default class Praise extends wepy.page {
+  config = {
+    navigationBarTitleText: '我赞过的'
+  }
 }
 </script>

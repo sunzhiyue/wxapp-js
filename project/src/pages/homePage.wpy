@@ -171,8 +171,7 @@ export default class Homepage extends wepy.page {
     search: '../image/search.png',
     praise: '../image/praise.png',
     describe: '',
-    content: null,
-    indicatorDots: true
+    content: null
   }
   methods = {
     searchtap() {
