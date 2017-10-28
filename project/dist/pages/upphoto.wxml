@@ -3,7 +3,7 @@
   <view class="background" style="height: {{height}}px;">
     <view class="height">
       <view class="section">
-        <textarea bindblur="bindTextAreaBlur" placeholder="描述你的作品..."/>
+        <textarea bindblur="bindTextAreaBlur" placeholder="描述你的作品..." bindinput="des"/>
       </view>
     </view>
     <view class="center">

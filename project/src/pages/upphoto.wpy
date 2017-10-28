@@ -105,7 +105,7 @@
   <view class="background" style="height: {{height}}px;">
     <view class="height">
       <view class="section">
-        <textarea bindblur="bindTextAreaBlur" placeholder="描述你的作品..." />
+        <textarea bindblur="bindTextAreaBlur" placeholder="描述你的作品..." bindinput="des"/>
       </view>
     </view>
     <view class="center">
@@ -144,13 +144,20 @@ export default class Index extends wepy.page {
     src: [],
     buttonUp: '../image/add.png',
     height: 0,
-    width: 0
+    width: 0,
+    des: ''
   }
   methods = {
     up() {
       wepy.navigateTo({
         url: ''
       })
+    },
+    des(e) {
+      let self = this
+      console.log(e.detail.value)
+      self.des = e.detail.value
+      // console.log(self.des)
     }
   }
   ButtonTap() {
