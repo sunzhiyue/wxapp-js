@@ -39,6 +39,9 @@
         <text String= "nbsp">  希望热爱摄影的小伙伴们能多多参与本小程序！</text>
       </view>
     </view>
+    <view>
+      <view animation="{{animationData}}" style="background:red;height:100rpx;width:100rpx"></view>
+    </view>
   </view>
 </template>
 
@@ -50,7 +53,43 @@ export default class About extends wepy.page {
   };
   data = {
     src: '',
-    portrait: '../image/camera.png'
+    portrait: '../image/camera.png',
+    animationData: {}
   };
+  onShow() {
+    var animation = wepy.createAnimation({
+      duration: 2000,
+      timingFunction: 'ease'
+    })
+
+    this.animation = animation
+
+    animation.scale(3, 2).rotate(10).step()
+    this.setData({
+      animationData: animation.export()
+    })
+
+    setTimeout(function() {
+      animation.translate(30).step()
+      this.setData({
+        animationData: animation.export()
+      })
+    }.bind(this), 1000)
+  }
+  // rotateAndScale() {
+  //   // 旋转同时放大
+  //   this.animation.rotate(45).scale(2, 2).step()
+  //   this.setData({
+  //     animationData: this.animation.export()
+  //   })
+  // }
+  rotateAndScaleThenTranslate() {
+    // 先旋转同时放大，然后平移
+    this.animation.rotate(45).scale(2, 2).step()
+    this.animation.translate(100, 100).step({ duration: 1000 })
+    this.setData({
+      animationData: this.animation.export()
+    })
+  }
 }
 </script>

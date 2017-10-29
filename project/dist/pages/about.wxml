@@ -12,4 +12,7 @@
         <text String="nbsp">  希望热爱摄影的小伙伴们能多多参与本小程序！</text>
       </view>
     </view>
+    <view>
+      <view animation="{{animationData}}" style="background:red;height:100rpx;width:100rpx"/>
+    </view>
   </view>
