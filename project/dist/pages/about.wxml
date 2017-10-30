@@ -13,6 +13,6 @@
       </view>
     </view>
     <view>
-      <view animation="{{animationData}}" style="background:red;height:100rpx;width:100rpx"/>
+      <view animation="{{animationData}}" style="background:black;height:100rpx;width:100rpx"/>
     </view>
   </view>
