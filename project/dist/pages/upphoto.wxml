@@ -14,7 +14,7 @@
 
     <view class="upPhoto">
       <block  wx:for="{{src}}">
-        <view>
+        <view bindtap="viewImg">
           <image class="image" mode="scaleToFill" src="{{item}}"/>
         </view>
       </block>

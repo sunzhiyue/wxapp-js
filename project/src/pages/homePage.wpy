@@ -139,7 +139,7 @@
       <view class="production">
         <view @tap="recTap" class="recommend" wx:for="{{content}}" wx:key="index" id="{{index}}">
           <text class="recName">{{item.recName}}</text>
-          <image class="recPhoto" src="{{item.recPhoto}}" mode="scaleToFill" />
+          <image class="recPhoto" src="{{item.recPhoto[0]}}" mode="scaleToFill" />
           <view class="prais">
             <view class="center">
               <image class="praise" src="{{praise}}" />

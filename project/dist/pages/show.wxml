@@ -4,6 +4,7 @@
       <view class="name">
         <text>《{{recName}}》</text>
       </view>
+
       <view class="praise">
         <image class="photo" src="{{praise ? '../image/elect.png' : elect}}" bindtap="praise"/>
         <view>
@@ -11,10 +12,16 @@
         </view>
       </view>
     </view>
+
     <view class="describe">
       <text space="nbsp">{{describe}}</text>
-      </view>
-    <view class="image">
-      <image src="{{recPhoto}}" mode="widthFix"/>
+    </view>
+
+    <view class="image"  wx:for="{{recPhoto}}" bindtap="viewImg">
+      <image src="{{item}}" mode="widthFix"/>
+    </view>
+
+    <view class="end">
+      <text>看完后给作品点个赞吧！</text>
     </view>
   </view>

@@ -28,7 +28,7 @@ width: 30px;
 .image{
   display: flex;
   justify-content: center;
-  
+  margin: 30rpx 30rpx;
 }
 .describe{
   float: left;
@@ -36,7 +36,15 @@ width: 30px;
   color: #6a6a6a;
   margin: 20rpx;
 }
+.end {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40rpx 0px;
+  font-size: 20px;
+  color: #e8a416;
 
+}
 </style>
 <template>
   <view class = "center">
@@ -44,6 +52,7 @@ width: 30px;
       <view class = "name">
         <text>《{{recName}}》</text>
       </view>
+
       <view class = "praise">
         <image class = "photo" src = "{{praise ? '../image/elect.png' : elect}}" @tap = "praise" />
         <view>
@@ -51,11 +60,17 @@ width: 30px;
         </view>
       </view>
     </view>
+
     <view class = "describe">
       <text space = "nbsp">{{describe}}</text>
-      </view>
-    <view class = "image">
-      <image src = "{{recPhoto}}" mode = "widthFix"/>
+    </view>
+
+    <view class = "image" wx:for="{{recPhoto}}" @tap = "viewImg" >
+      <image src = "{{item}}" mode = "widthFix"/>
+    </view>
+
+    <view class = "end">
+      <text>看完后给作品点个赞吧！</text>
     </view>
   </view>
 </template>
@@ -83,12 +98,25 @@ export default class Show extends wepy.page {
       } else {
         self.recNumber--
       }
+    },
+    viewImg(e) {
+      let self = this
+      const index = e.currentTarget.dataset.index
+      let arr = []
+      for (let i = 0; i < self.recPhoto.length; i++) {
+        arr.push(self.recPhoto[i])
+      }
+      console.log(self.recPhoto, 'src')
+      wepy.previewImage({
+        urls: arr,
+        current: `${self.recPhoto[index]}`
+      })
     }
   }
   onLoad(data) {
     let self = this
     self.recName = data.recName
-    self.recPhoto = data.recPhoto
+    self.recPhoto = data.recPhoto.split(',')
     self.describe = data.describe
     self.recNumber = data.recNumber
     console.log(self.recPhoto)

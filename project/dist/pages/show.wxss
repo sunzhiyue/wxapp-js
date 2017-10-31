@@ -28,7 +28,7 @@ width: 30px;
 .image{
   display: flex;
   justify-content: center;
-  
+  margin: 30rpx 30rpx;
 }
 .describe{
   float: left;
@@ -36,4 +36,12 @@ width: 30px;
   color: #6a6a6a;
   margin: 20rpx;
 }
+.end {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40rpx 0px;
+  font-size: 20px;
+  color: #e8a416;
 
+}

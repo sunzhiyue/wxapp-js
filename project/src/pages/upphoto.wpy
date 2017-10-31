@@ -116,8 +116,8 @@
 
     <view class="upPhoto">
       <block wx:for="{{src}}">
-        <view>
-          <image class="image" mode="scaleToFill" src="{{item}}"></image>
+        <view @tap="viewImg">
+          <image class="image" mode="scaleToFill" src="{{item}}" ></image>
         </view>
       </block>
       <view class="button" @tap="ButtonTap">
@@ -158,41 +158,55 @@ export default class Index extends wepy.page {
       console.log(e.detail.value)
       self.des = e.detail.value
       // console.log(self.des)
-    }
-  }
-  ButtonTap() {
-    let self = this
-    if (self.src.length >= 8) {
-      wepy.showToast({
-        title: '只能放8张哦',
-        icon: 'success',
-        duration: 1000
-      })
-      return
-    }
-    wepy.chooseImage({
-      count: 8, // 默认9
-      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
-      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
-      success: function(res) {
-        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
-        let arr = self.src
-        let a = arr.concat(res.tempFilePaths)
-        if (a.length > 8) {
-          wepy.showToast({
-            title: '只能放8张哦',
-            icon: 'success',
-            duration: 1000
-          })
-          return
-        }
-        self.src = a
-        self.setData({
-          src: a
+    },
+    ButtonTap() {
+      let self = this
+      if (self.src.length >= 8) {
+        wepy.showToast({
+          title: '只能放8张哦',
+          icon: 'success',
+          duration: 1000
         })
+        return
       }
-    })
-  };
+      wepy.chooseImage({
+        count: 8, // 默认9
+        sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+        sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+        success: function(res) {
+          // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
+          let arr = self.src
+          let a = arr.concat(res.tempFilePaths)
+          if (a.length > 8) {
+            wepy.showToast({
+              title: '只能放8张哦',
+              icon: 'success',
+              duration: 1000
+            })
+            return
+          }
+          self.src = a
+          self.setData({
+            src: a
+          })
+        }
+      })
+    },
+    viewImg(e) {
+      let self = this
+      const index = e.currentTarget.dataset.index
+      let arr = []
+      for (let i = 0; i < self.src.length; i++) {
+        arr.push(self.src[i])
+      }
+      console.log(self.src, 'src')
+      wepy.previewImage({
+        urls: arr,
+        current: `${self.src[index]}`
+      })
+    }
+
+  }
   onLoad() {
     let self = this
     wepy.getSystemInfo({
