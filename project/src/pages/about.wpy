@@ -23,7 +23,17 @@
   display: flex;
   justify-content: center;
 }
-
+.a {
+  width: 40px;
+  height: 40px;
+  background-color: #000;
+  animation: rotate 10s linear infinite;
+}
+@keyframes rotate{
+  0% {transform:rotate(0deg);}
+  50% {transform:rotate(180deg);}
+  100% {transform:rotate(360deg);}
+}
 </style>
 <template>
   <view>
@@ -41,6 +51,7 @@
     </view>
     <view>
       <view animation="{{animationData}}" style="background:black;height:100rpx;width:100rpx"></view>
+      <view class = "a"></view>
     </view>
   </view>
 </template>
@@ -56,27 +67,27 @@ export default class About extends wepy.page {
     portrait: '../image/camera.png',
     animationData: {}
   };
-  onShow() {
-    var animation = wepy.createAnimation({
-      duration: 20002,
-      timingFunction: 'linear',
-      transformOrigin: '50% 50%'
-    })
+  // onShow() {
+  //   var animation = wepy.createAnimation({
+  //     duration: 20002,
+  //     timingFunction: 'linear',
+  //     transformOrigin: '50% 50%'
+  //   })
 
-    this.animation = animation
+  //   this.animation = animation
 
-    animation.rotate(360).step()
-    this.setData({
-      animationData: animation.export()
-    })
+  //   animation.rotate(360).step()
+  //   this.setData({
+  //     animationData: animation.export()
+  //   })
 
-    setTimeout(function() {
-      animation.translate(0).step()
-      this.setData({
-        animationData: animation.export()
-      })
-    }.bind(this), 1000)
-  }
+  //   setTimeout(function() {
+  //     animation.translate(0).step()
+  //     this.setData({
+  //       animationData: animation.export()
+  //     })
+  //   }.bind(this), 1000)
+  // }
   // onshow() {
   //   // 旋转同时放大
   //   this.animation.rotate(90).scale(2, 2).step()
