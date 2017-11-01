@@ -59,6 +59,7 @@
   flex-direction: column;
   justify-content: center;
   align-content: center;
+  margin: 10rpx 8rpx;
 }
 
 .prais {
@@ -137,9 +138,9 @@
 
     <view class="show">
       <view class="production">
-        <view @tap="recTap" class="recommend" wx:for="{{content}}" wx:key="index" id="{{index}}">
+        <view @tap="recTap" class="recommend" wx:for="{{text}}" wx:key="index" id="{{index}}">
           <text class="recName">{{item.recName}}</text>
-          <image class="recPhoto" src="{{item.recPhoto[0]}}" mode="scaleToFill" />
+          <image class="recPhoto" src="{{item.recPhoto}}" mode="scaleToFill" />
           <view class="prais">
             <view class="center">
               <image class="praise" src="{{praise}}" />
@@ -171,7 +172,9 @@ export default class Homepage extends wepy.page {
     search: '../image/search.png',
     praise: '../image/praise.png',
     describe: '',
-    content: null
+    content: null,
+    state: 'true',
+    text: ''
   }
   methods = {
     searchtap() {
@@ -181,7 +184,7 @@ export default class Homepage extends wepy.page {
     },
     recTap(e) {
       let self = this
-      let item = self.content[e.currentTarget.id]
+      let item = self.text[e.currentTarget.id]
       console.log(e)
       wepy.navigateTo({
         url: `./show?recName=${item.recName}&recPhoto=${item.recPhoto}&recNumber=${item.recNumber}&describe=${item.describe}`
@@ -191,6 +194,20 @@ export default class Homepage extends wepy.page {
   onLoad() {
     let self = this
     self.content = content
+    wepy.request({
+      url: 'http://127.0.0.1:7001/photo/list',
+      method: 'POST',
+      data: {
+        state: self.state
+      },
+      success: function(res) {
+        console.log(res.data)
+        self.text = res.data
+        self.setData({
+          text: res.data
+        })
+      }
+    })
   }
   onPullDownRefresh() {
     wepy.startPullDownRefresh()

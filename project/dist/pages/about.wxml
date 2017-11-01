@@ -16,4 +16,7 @@
       <view animation="{{animationData}}" style="background:black;height:100rpx;width:100rpx"/>
       <view class="a"/>
     </view>
+    <view>
+      <embed src="//music.163.com/style/swf/widget.swf?sid=451981574&type=2&auto=1&width=278&height=32" width="298" height="52" allowNetworking="all"/>
+    </view>
   </view>
