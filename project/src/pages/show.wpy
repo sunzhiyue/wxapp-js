@@ -54,7 +54,7 @@ width: 30px;
       </view>
 
       <view class = "praise">
-        <image class = "photo" src = "{{praise ? '../image/elect.png' : elect}}" @tap = "praise" />
+        <image class = "photo" src = "{{praise ? '../image/elect.png' : elect}}" @tap = "minusCount" />
         <view>
           <text class = "number">{{recNumber}}</text>
         </view>
@@ -111,6 +111,29 @@ export default class Show extends wepy.page {
         urls: arr,
         current: `${self.recPhoto[index]}`
       })
+    },
+    minusCount(e) {
+      let self = this
+      const index = e.currentTarget.dataset.index
+      let photo = self.photo
+      let recNumber = photo[index].recNumber
+      if (recNumber <= 1) {
+        return false
+      }
+      recNumber = recNumber - 1
+      photo[index].recNumber = recNumber
+      wepy.request({
+        url: 'http://127.0.0.1:7001/photo.upload',
+        method: 'POST',
+        data: {
+          id: self.photo[index].id,
+          recNumber: photo[index].recNumber
+        }
+      })
+      self.setData({
+        photo: photo
+      })
+      self.methods.getTotalPrice(self)
     }
   }
   onLoad(data) {

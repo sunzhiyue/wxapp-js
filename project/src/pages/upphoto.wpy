@@ -163,8 +163,8 @@ export default class Index extends wepy.page {
       let self = this
       if (self.src.length >= 8) {
         wepy.showToast({
+          image: '../image/warn.png',
           title: '只能放8张哦',
-          icon: 'success',
           duration: 1000
         })
         return
@@ -213,6 +213,16 @@ export default class Index extends wepy.page {
       success(res) {
         console.log(res)
         self.height = res.windowHeight
+      }
+    })
+    wepy.getUserInfo({
+      success(res) {
+        self.nickName = res.userInfo.nickName
+        self.avatarUrl = res.userInfo.avatarUrl
+        self.setData({
+          avatarUrl: res.userInfo.avatarUrl,
+          nickName: res.userInfo.nickName
+        })
       }
     })
   }

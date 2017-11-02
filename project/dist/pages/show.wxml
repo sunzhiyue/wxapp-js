@@ -6,7 +6,7 @@
       </view>
 
       <view class="praise">
-        <image class="photo" src="{{praise ? '../image/elect.png' : elect}}" bindtap="praise"/>
+        <image class="photo" src="{{praise ? '../image/elect.png' : elect}}" bindtap="minusCount"/>
         <view>
           <text class="number">{{recNumber}}</text>
         </view>
