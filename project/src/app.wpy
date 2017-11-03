@@ -24,7 +24,8 @@ export default class extends wepy.app {
       'pages/praise',
       'pages/about',
       'pages/teas',
-      'pages/show'
+      'pages/show',
+      'pages/myPhoto'
     ],
     window: {
       backgroundTextStyle: 'dark',

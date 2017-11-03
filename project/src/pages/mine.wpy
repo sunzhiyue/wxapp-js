@@ -55,20 +55,11 @@
   display: flex;
   font-size: 20px;
   color: #4a4847;
-  padding: 4px 4px 0px 4px;
+  padding: 4px 4px 4px 4px;
   flex: 9;
 }
-
-.text1 {
-  display: flex;
-  font-size: 20px;
-  color: #4a4847;
-  padding: 4px 4px 0px 4px;
-  flex: 1;
-}
-
 .image {
-  height: 50rpx;
+  height: 45rpx;
   width: 50rpx;
   padding: 4px;
 }
@@ -77,9 +68,12 @@
   display: flex;
   justify-content: space-between;
 }
+.center {
+  display: flex;
+  align-items: center;
+}
 </style>
 <template>
-  <view>
   <view class="background" style="height: {{height}}px">
     <view class="">
       <view class="id">
@@ -93,21 +87,37 @@
 
       <view class="body">
         <view @tap = "praiseTap" class="praise flex">
-          <image class="image" src="{{praise}}" />
-          <text class="text">我赞过的</text>
+          <view class = "center">
+            <image class="image" src="{{praise}}" />
+            <text class="text">我赞过的</text>
+          </view>
         </view>
+
+        <view @tap = "myTap" class = "flex">
+          <view class = "center">
+            <image class = "image" src="{{my}}"/>
+            <text class = "text">我的作品</text>
+          </view>
+        </view>
+      </view>
+
+      <view class = "body">
         <view @tap = "teasTap" class="praise flex">
-          <image class="image" src="{{teas}}" />
-          <text class="text">吐槽吐槽</text>
+          <view class = "center">
+            <image class="image" src="{{teas}}" />
+            <text class="text">吐槽吐槽</text>
+          </view>
         </view>
+
         <view @tap = "aboutTap" class="flex">
-          <image class="image" src="{{about}}" />
+          <view class = "center">
+            <image class="image" src="{{about}}" />
             <text class="text">关于我们</text>
+          </view>
         </view>
       </view>
 
     </view>
-  </view>
   </view>
 </template>
 
@@ -125,7 +135,8 @@ export default class Mine extends wepy.page {
     src: '',
     praise: '../image/praise.png',
     teas: '../image/message.png',
-    about: '../image/group.png'
+    about: '../image/about.png',
+    my: '../image/myphoto.png'
   }
   methods = {
     praiseTap() {
@@ -141,6 +152,11 @@ export default class Mine extends wepy.page {
     aboutTap() {
       wepy.navigateTo({
         url: 'about'
+      })
+    },
+    myTap() {
+      wepy.navigateTo({
+        url: 'myPhoto'
       })
     }
   };
