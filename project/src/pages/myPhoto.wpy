@@ -1,9 +1,69 @@
 <style>
+.show {
+  margin: 40rpx 20rpx;
+  display: flex;
+  flex-direction: row;
+}
+.production {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.recommend {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+.recName {
+  font-size: 20px;
+  width: 9rem;
+}
+.recPhoto {
+  border-radius: 10px;
+  width: 9rem;
+  box-shadow: 10rpx 5rpx 15px #4b5885;
+}
+.prais {
+  display: flex;
+  flex-direction: row;
+  font-size: 15px;
+}
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.praise {
+  height: 15px;
+  width: 15px;
+}
 
 </style>
 
 <template>
-  
+  <view>
+    <view class = "text">
+      <text>我的作品</text>
+    </view>
+    <view>
+      <view class="show">
+      <view class="production">
+        <view @tap="recTap" class="recommend" wx:for="{{text}}" wx:key="index" id="{{index}}">
+          <text class="recName">{{item.recName}}</text>
+          <image class="recPhoto" src="{{item.recPhoto}}" mode="scaleToFill" />
+          <view class="prais">
+            <view class="center">
+              <image class="praise" src="{{praise}}" />
+            </view>
+            <text class="Number">{{item.recNumber}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    </view>
+  </view>
 </template>
 
 <script>
@@ -11,6 +71,46 @@ import wepy from 'wepy'
 export default class About extends wepy.page {
   config = {
     navigationBarTitleText: '我的作品'
+  }
+  data = {
+    src: '',
+    describe: '',
+    state: 'true',
+    Wechat: 'ss',
+    text: '',
+    praise: '../image/praise.png'
+  }
+  methods = {
+    recTap(e) {
+      let self = this
+      let item = self.text[e.currentTarget.id]
+      console.log(e)
+      wepy.navigateTo({
+        url: `./show?recName=${item.recName}&recPhoto=${item.recPhoto}&recNumber=${item.recNumber}&describe=${item.describe}`
+      })
+    }
+  }
+  onLoad() {
+    let self = this
+    wepy.getUserInfo({
+      success: function(res) {
+        self.nickName = res.userInfo.nickName
+        wepy.request({
+          url: 'http://127.0.0.1:7001/photo/myPhoto',
+          method: 'POST',
+          data: {
+            Wechat: self.nickName
+          },
+          success: function(res) {
+            console.log(res.data)
+            self.text = res.data
+            self.setData({
+              text: res.data
+            })
+          }
+        })
+      }
+    })
   }
 }
 </script>
