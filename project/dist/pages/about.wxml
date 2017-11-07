@@ -17,6 +17,6 @@
       <view class="a"/>
     </view>
     <view>
-      
+      <button bindtap="show">shou</button>
     </view>
   </view>

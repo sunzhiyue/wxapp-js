@@ -49,19 +49,19 @@
     </view>
     <view>
       <view class="show">
-      <view class="production">
-        <view @tap="recTap" class="recommend" wx:for="{{text}}" wx:key="index" id="{{index}}">
-          <text class="recName">{{item.recName}}</text>
-          <image class="recPhoto" src="{{item.recPhoto}}" mode="scaleToFill" />
-          <view class="prais">
-            <view class="center">
-              <image class="praise" src="{{praise}}" />
+        <view class="production">
+          <view @tap="recTap" class="recommend" wx:for="{{text}}" wx:key="index" id="{{index}}">
+            <text class="recName">{{item.recName}}</text>
+            <image class="recPhoto" src="{{item.recPhoto}}" mode="scaleToFill" />
+            <view class="prais">
+              <view class="center">
+                <image class="praise" src="{{praise}}" />
+              </view>
+              <text class="Number">{{item.recNumber}}</text>
             </view>
-            <text class="Number">{{item.recNumber}}</text>
           </view>
         </view>
       </view>
-    </view>
     </view>
   </view>
 </template>
@@ -78,7 +78,7 @@ export default class About extends wepy.page {
     state: 'true',
     Wechat: 'ss',
     text: '',
-    praise: '../image/praise.png'
+    praise: '../image/praone.png'
   }
   methods = {
     recTap(e) {

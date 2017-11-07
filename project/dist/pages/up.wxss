@@ -3,5 +3,48 @@
   height: 65rpx;
   border: 1px solid black;
   margin: 10px;
-  border-radius: 6px;
+  border-radius: 7px;
+}
+.show {
+  margin: 40rpx 20rpx;
+  display: flex;
+  flex-direction: row;
+}
+.production {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.recommend {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+.recName {
+  font-size: 20px;
+  width: 9rem;
+}
+.recPhoto {
+  border-radius: 10px;
+  width: 9rem;
+  box-shadow: 10rpx 5rpx 15px #4b5885;
+}
+.prais {
+  display: flex;
+  flex-direction: row;
+  font-size: 15px;
+}
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.praise {
+  height: 15px;
+  width: 15px;
+}
+.input {
+  height: 65rpx;
 }

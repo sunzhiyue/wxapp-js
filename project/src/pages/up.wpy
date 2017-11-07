@@ -3,15 +3,75 @@
   height: 65rpx;
   border: 1px solid black;
   margin: 10px;
-  border-radius: 6px;
+  border-radius: 7px;
+}
+.show {
+  margin: 40rpx 20rpx;
+  display: flex;
+  flex-direction: row;
+}
+.production {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.recommend {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+.recName {
+  font-size: 20px;
+  width: 9rem;
+}
+.recPhoto {
+  border-radius: 10px;
+  width: 9rem;
+  box-shadow: 10rpx 5rpx 15px #4b5885;
+}
+.prais {
+  display: flex;
+  flex-direction: row;
+  font-size: 15px;
+}
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.praise {
+  height: 15px;
+  width: 15px;
+}
+.input {
+  height: 65rpx;
 }
 </style>
 
 <template>
   <view>
     <view class="find">
-      <input placeholder="寻找作品" auto-focus/>
+      <input class = "input" placeholder="寻找作品" auto-focus bindinput="input"/>
     </view>
+    <view>
+      <view class="show">
+        <view class="production">
+          <view @tap="recTap" class="recommend" wx:for="{{text}}" wx:key="index" id="{{index}}">
+            <text class="recName">{{item.recName}}</text>
+            <image class="recPhoto" src="{{item.recPhoto}}" mode="scaleToFill" />
+            <view class="prais">
+              <view class="center">
+                <image class="praise" src="{{praise}}" />
+              </view>
+              <text class="Number">{{item.recNumber}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view>{{text.describe}}</view>
   </view>
 </template>
 
@@ -20,6 +80,62 @@ import wepy from 'wepy'
 export default class Up extends wepy.page {
   config = {
     navigationBarTitleText: '寻找作品'
+  }
+  data = {
+    input: '',
+    text: ''
+  }
+  methods ={
+    input(e) {
+      let self = this
+      self.input = e.detail.value
+      console.log(self.input, 'aaaaa')
+      if (self.input !== '') {
+        wepy.request({
+          url: 'http://127.0.0.1:7001/photo/search',
+          method: 'POST',
+          data: {
+            recName: self.input
+          },
+          success: function(res) {
+            console.log(res.data, '1')
+            self.text = res.data
+            self.setData({
+              text: res.data
+            })
+            console.log(self.text, '2')
+          }
+        })
+      } else {
+
+      }
+    },
+    recTap(e) {
+      let self = this
+      let item = self.text[e.currentTarget.id]
+      console.log(e)
+      wepy.navigateTo({
+        url: `./show?recName=${item.recName}&recPhoto=${item.recPhoto}&recNumber=${item.recNumber}&describe=${item.describe}`
+      })
+    }
+  }
+  onShow() {
+    // let self = this
+    // wepy.request({
+    //   url: 'http://127.0.0.1:7001/photo/search',
+    //   method: 'POST',
+    //   data: {
+    //     state: self.state
+    //   },
+    //   success: function(res) {
+    //     console.log(res.data, '1')
+    //     self.text = res.data
+    //     self.setData({
+    //       text: res.data
+    //     })
+    //     console.log(self.text, '2')
+    //   }
+    // })
   }
 }
 </script>
