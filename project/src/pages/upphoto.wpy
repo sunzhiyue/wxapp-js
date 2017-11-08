@@ -110,7 +110,7 @@
     </view>
     <view class="center">
       <view class="photoName">
-        <input bindblur="bindTextAreaBlur" placeholder="给你的作品起个名" maxlength="7" />
+        <input bindblur="bindTextAreaBlur" placeholder="给你的作品起个名" maxlength="7" bindinput = "input" />
       </view>
     </view>
 
@@ -148,16 +148,55 @@ export default class Index extends wepy.page {
     des: ''
   }
   methods = {
-    up() {
-      wepy.navigateTo({
-        url: ''
-      })
-    },
     des(e) {
       let self = this
       console.log(e.detail.value)
-      self.des = e.detail.value
-      // console.log(self.des)
+      self.photodes = e.detail.value
+    },
+    input(e) {
+      let self = this
+      console.log(e.detail.value)
+      self.photoName = e.detail.value
+    },
+    up(e) {
+      let self = this
+      wepy.getUserInfo({
+        success: function(res) {
+          self.nickName = res.userInfo.nickName
+          self.avatarUrl = res.userInfo.avatarUrl
+          if (self.input !== '' & self.dec !== '' & self.nickName !== '') {
+            wepy.request({
+              url: 'http://127.0.0.1:7001/photo/upload',
+              method: 'POST',
+              data: {
+                Wechat: self.nickName,
+                recName: self.photoName,
+                recPhoto: self.src,
+                describe: self.photodes
+                // recNumber: 0
+              },
+              success: function(res) {
+                console.log(res)
+                wepy.showToast({
+                  title: '成功',
+                  icon: 'success',
+                  duration: 2000,
+                  success: function() {
+                    wepy.navigateBack({
+                      delta: 1
+                    })
+                  }
+                })
+              }
+            })
+          } else {
+            wepy.showToast({
+              title: '请补充信息',
+              image: '../image/warn.png'
+            })
+          }
+        }
+      })
     },
     ButtonTap() {
       let self = this

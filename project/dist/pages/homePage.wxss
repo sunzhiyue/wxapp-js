@@ -41,7 +41,6 @@
 .show {
   margin: 40rpx 20rpx;
   display: flex;
-  justify-content: center;
   flex-direction: row;
 }
 

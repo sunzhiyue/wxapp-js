@@ -84,7 +84,7 @@ export default class Show extends wepy.page {
   data = {
     src: '',
     recName: '',
-    recPhoto: '',
+    recPhoto: [],
     describe: '',
     recNumber: 0,
     praise: '../image/praise.png'

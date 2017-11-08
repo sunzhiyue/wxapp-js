@@ -8,7 +8,7 @@
     </view>
     <view class="center">
       <view class="photoName">
-        <input bindblur="bindTextAreaBlur" placeholder="给你的作品起个名" maxlength="7"/>
+        <input bindblur="bindTextAreaBlur" placeholder="给你的作品起个名" maxlength="7" bindinput="input"/>
       </view>
     </view>
 
